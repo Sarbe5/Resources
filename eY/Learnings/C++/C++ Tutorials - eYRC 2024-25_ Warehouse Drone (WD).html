@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<!-- saved from url=(0130)file:///C:/Users/Sarbeswar%20Nayak/OneDrive/eY/Learnings/C++/C++%20Tutorials%20-%20eYRC%202024-25_%20Warehouse%20Drone%20(WD).html -->
+<html lang="en" class="js sidebar-hidden sidebar-visible sustain"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Book generated using mdBook -->
+    
+    <title>C++ Tutorials - eYRC 2024-25: Warehouse Drone (WD)</title>
+
+    
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="rgba(0, 0, 0, 0)">
+
+    <link rel="shortcut icon" href="https://e-yantra.org/logo/eyantra/press/25eyantra_logo~SmallLogo_html.svg">
+    <link rel="stylesheet" href="./C++ Tutorials - eYRC 2024-25_ Warehouse Drone (WD)_files/variables.css">
+    <link rel="stylesheet" href="./C++ Tutorials - eYRC 2024-25_ Warehouse Drone (WD)_files/general.css">
+    <link rel="stylesheet" href="./C++ Tutorials - eYRC 2024-25_ Warehouse Drone (WD)_files/chrome.css">
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="./C++ Tutorials - eYRC 2024-25_ Warehouse Drone (WD)_files/all.min.css">
+    <link rel="stylesheet" href="./C++ Tutorials - eYRC 2024-25_ Warehouse Drone (WD)_files/font-awesome.css">
+    <link rel="stylesheet" href="./C++ Tutorials - eYRC 2024-25_ Warehouse Drone (WD)_files/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" href="./C++ Tutorials - eYRC 2024-25_ Warehouse Drone (WD)_files/highlight.css">
+    <link rel="stylesheet" href="./C++ Tutorials - eYRC 2024-25_ Warehouse Drone (WD)_files/tomorrow-night.css" disabled="">
+    <link rel="stylesheet" href="./C++ Tutorials - eYRC 2024-25_ Warehouse Drone (WD)_files/ayu-highlight.css" disabled="">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="./C++ Tutorials - eYRC 2024-25_ Warehouse Drone (WD)_files/css2" rel="stylesheet">
+
+    <!-- Custom theme stylesheets -->
+
+    <!-- MathJax -->
+    <script async="" type="text/javascript" src="./C++ Tutorials - eYRC 2024-25_ Warehouse Drone (WD)_files/MathJax.js.download"></script>
+
+    <style>
+
+        
+        .button-container {
+            position: fixed; /* Fixed position for staying near the bottom-right corner */
+            bottom: 8%; /* Adjust distance from the bottom as a percentage */
+            right: 8%; /* Adjust distance from the right as a percentage */
+            width: 150px; /* Set the width of the container */
+            height: 150px; /* Set the height of the container */
+        }
+
+        .my-button {
+            border-radius: 50%; /* Round button */
+            font-size: 16px;
+            border: none;
+            background-color: #ffffff;
+            color: rgb(0, 0, 0);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            position: absolute;
+        }
+
+        .my-button:hover {
+            background-color: #008B8B;
+        }
+
+        /* Button 1 Styles */
+        #code_playground_button {
+            width: 50px; /* Fixed width for Button 1 */
+            height: 50px; /* Fixed height for Button 1 */
+            top: 50%;
+            left: 100%;
+            transform: translate(-50%, -50%);
+            font-size: 24px; /* Font size for the icon */
+        }
+
+        /* Button 2 Styles */
+        #py_button {
+            width: 60px; /* Fixed width for Button 2 */
+            height: 60px; /* Fixed height for Button 2 */
+            top: 0;
+            left: 0;
+            font-size: 24px; /* Font size for the icon */
+        }
+
+        /* Button 3 Styles */
+        #cplus_button {
+            width: 60px; /* Fixed width for Button 3 */
+            height: 60px; /* Fixed height for Button 3 */
+            bottom: 0;
+            left: 0;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .cplusplus-icon {
+            width: 3em; 
+            height: 3em;
+        }
+
+        .python-icon {
+            width: 1.5em; 
+            height: 1.5em;
+        }
+    </style>
+<style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuRadioCheck.RTL {right: 1em; left: auto}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><script src="file:///C:/Users/Sarbeswar%20Nayak/OneDrive/eY/searchindex.js"></script></head>
+<body><div id="MathJax_Message" style="display: none;"></div><div id="MathJax_Message" style="display: none;"></div>
+    <!-- Provide site root to javascript -->
+    <script type="text/javascript">
+        var path_to_root = "../../";
+        var default_theme = "sustain";
+        <!-- window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "sustain"; -->
+    </script>
+
+    <!-- Work around some values being stored in localStorage wrapped in quotes -->
+    <script type="text/javascript">
+        try {
+            var theme = localStorage.getItem('mdbook-theme');
+            var sidebar = localStorage.getItem('mdbook-sidebar');
+
+            if (theme.startsWith('"') && theme.endsWith('"')) {
+                localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+            }
+
+            if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+            }
+        } catch (e) { }
+    </script>
+
+    <!-- Set the theme before any content is loaded, prevents flash -->
+    <script type="text/javascript">
+        var theme;
+        try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+        if (theme === null || theme === undefined) { theme = default_theme; }
+        var html = document.querySelector('html');
+        html.classList.remove('no-js')
+        html.classList.remove('sustain')
+        html.classList.add(theme);
+        html.classList.add('js');
+    </script>
+
+    <!-- Hide / unhide sidebar before it is displayed -->
+    <script type="text/javascript">
+        var html = document.querySelector('html');
+        var sidebar = 'hidden';
+        if (document.body.clientWidth >= 1080) {
+            try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+            sidebar = sidebar || 'visible';
+        }
+        html.classList.remove('sidebar-visible');
+        html.classList.add("sidebar-" + sidebar);
+    </script>
+
+    <nav id="sidebar" class="sidebar" aria-label="Table of contents" aria-hidden="true">
+        <div class="sidebar-scrollbox">
+            <ol class="chapter"><li class="chapter-item affix "></li><li class="part-title">Welcome to Warehouse Drone theme!</li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/welcome.html" tabindex="-1">Home</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/bulletin_board.html" tabindex="-1">Bulletin board</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/deadlines.html" tabindex="-1">Deadlines</a></li><li class="chapter-item affix "></li><li class="spacer"></li><li class="chapter-item affix "></li><li class="part-title">Learning Section</li><li class="chapter-item expanded "><a href="https://portal.e-yantra.org/themeBook/wd/WD-learn-section-intro.html" tabindex="-1">Learnings</a><a class="toggle" tabindex="-1"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/Linux/Linux.html" tabindex="-1">Linux</a><a class="toggle" tabindex="-1"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/Linux/learn-linux-file-system.html" tabindex="-1">Linux File System Directories</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/Linux/learn-linux-file-permissions.html" tabindex="-1">Linux File Permissions</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/Linux/learn-linux-command.html" tabindex="-1">Linux Commands</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/Linux/shell_scripting.html" tabindex="-1">Shell Scripting</a><a class="toggle" tabindex="-1"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/Linux/Shell_scripting_example.html" tabindex="-1">Example 1</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/Linux/shell_scripting_example2.html" tabindex="-1">Example 2</a></li></ol></li></ol></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/Python/python.html" tabindex="-1">Python</a><a class="toggle" tabindex="-1"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/Python/py_tutorials.html" tabindex="-1">Python Tutorials</a></li></ol></li><li class="chapter-item expanded "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/C++/c++.html" tabindex="-1">C++</a><a class="toggle" tabindex="-1"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/C++/cpp_tutorials.html" class="active" tabindex="-1">C++ Tutorials</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/C++/cpp_books.html" tabindex="-1">C++ Books</a></li></ol></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/ROS/ROS.html" tabindex="-1">ROS 2</a><a class="toggle" tabindex="-1"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/ROS/ros_books.html" tabindex="-1">ROS 2 Books</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/ROS/ROS2_concepts.html" tabindex="-1">ROS 2 Concepts</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/ROS/ROS2_tutorials.html" tabindex="-1">ROS 2 Tutorials</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/ROS/turtlesim_tutorials.html" tabindex="-1">Turtlesim Resources</a></li></ol></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/Gazebo_URDF/GZ_URDF.html" tabindex="-1">Gazebo &amp; URDF</a><a class="toggle" tabindex="-1"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/Gazebo_URDF/Gazebo.html" tabindex="-1">Gazebo Tutorials</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/Gazebo_URDF/URDF.html" tabindex="-1">URDF ROS 2</a></li></ol></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/Quadcopter/quadcopters.html" tabindex="-1">Quadcopters</a><a class="toggle" tabindex="-1"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/Quadcopter/swift_model.html" tabindex="-1">Understanding the Swift Pico model in gazebo simulator</a></li></ol></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/Control_System/control_systems.html" tabindex="-1">Control Systems</a><a class="toggle" tabindex="-1"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/Control_System/pid_drones.html" tabindex="-1">PID Controller For Drones</a></li></ol></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/Image_Processing/image_processing.html" tabindex="-1">Image Processing</a><a class="toggle" tabindex="-1"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/Image_Processing/opencv_py.html" tabindex="-1">OpenCV Python</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/Image_Processing/ros_opencv.html" tabindex="-1">ROS-OpenCV</a></li></ol></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/Github/git_github.html" tabindex="-1">Git and GitHub</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/Coding_Standard/coding_std.html" tabindex="-1">Coding Standards</a></li></ol></li><li class="chapter-item "></li><li class="part-title">Competition Section</li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Stage_1.html" tabindex="-1">Stage 1</a><a class="toggle" tabindex="-1"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Task_0/task_0.html" tabindex="-1">Task 0</a><a class="toggle" tabindex="-1"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Task_0/Installation_task0.html" tabindex="-1">Installation of Ubuntu and ROS</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Task_0/Submission_task0.html" tabindex="-1">Submission Instructions </a></li></ol></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Task_1/task_1.html" tabindex="-1">Task 1</a><a class="toggle" tabindex="-1"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Task_1/task_1a.html" tabindex="-1">Task 1A</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Task_1/task_1b.html" tabindex="-1">Task 1B</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Task_1/task_1c.html" tabindex="-1">Task 1C</a></li></ol></li></ol></li><li class="chapter-item "></li><li class="part-title">Live Sessions</li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/live_sessions/task_0_1.html" tabindex="-1">Task 0 &amp; 1</a></li></ol>
+        </div>
+        <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+    </nav>
+
+    <div id="page-wrapper" class="page-wrapper">
+
+        <div class="page">
+            <div id="menu-bar-hover-placeholder"></div>
+            
+
+            <script type="text/javascript">
+                if (document.body.clientWidth < 600) {
+                    let logo = document.getElementById("eLogo");
+                    logo.style = "display: none";
+                    document.getElementById("RCName").style = "display: none";
+                    document.getElementById("image-container").style = "justify-content: center";
+                }
+                if (document.body.clientWidth < 400) {
+                    let rB = document.getElementsByClassName("right-buttons");
+                    rB[0].style = "display:none";
+                }
+            </script>
+
+            <div id="search-wrapper" class="hidden">
+                <form id="searchbar-outer" class="searchbar-outer">
+                    <input type="search" name="search" id="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                </form>
+                <div id="searchresults-outer" class="searchresults-outer hidden">
+                    <div id="searchresults-header" class="searchresults-header"></div>
+                    <ul id="searchresults">
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+            <script type="text/javascr&lt;link rel=" stylesheet"="" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">uerySelectorAll('#sidebar a')).forEach(function(link) {
+                    link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                });
+            </script>
+
+            <div id="content" class="content">
+                <main>
+                    <h2 id="cpp_basics"><a class="header" href="https://portal.e-yantra.org/themeBook/wd/Learnings/C++/cpp_tutorials.html#cpp_basics"><span>C++ Basics</span></a></h2>
+<ul>
+<li value="1"><a href="https://www.geeksforgeeks.org/writing-first-c-program-hello-world-example/"><span>First C++ Program</span></a></li>
+<li value="2"><a href="https://www.geeksforgeeks.org/cpp-basic-syntax/"><span>C++ Basic Syntax</span></a></li>
+<li value="3"><a href="https://www.geeksforgeeks.org/cpp-comments/"><span>C++ Comments</span></a></li>
+<li value="4"><a href="https://www.geeksforgeeks.org/cpp-tokens/"><span>C++ Tokens</span></a></li>
+<li value="5"><a href="https://www.geeksforgeeks.org/cpp-identifiers/"><span>C++ Identifiers</span></a></li>
+<li value="6"><a href="https://www.geeksforgeeks.org/cpp-keywords/"><span>C++ Keywords</span></a></li>
+<li value="7"><a href="https://www.geeksforgeeks.org/difference-between-keyword-and-identifier/"><span>Difference between Keyword and Identifier</span></a></li>
+</ul>
+<h2 id="cpp_variables_constants"><a class="header" href="https://portal.e-yantra.org/themeBook/wd/Learnings/C++/cpp_tutorials.html#cpp_variables_constants"><span>C++ Variables and Constants</span></a></h2>
+<ul>
+<li value="1"><a href="https://www.geeksforgeeks.org/cpp-variables/"><span>C++ Variables</span></a></li>
+<li value="2"><a href="https://www.geeksforgeeks.org/cpp-constants/"><span>C++ Constants</span></a></li>
+<li value="3"><a href="https://www.geeksforgeeks.org/scope-of-variables-in-c/"><span>Scope of C++ Variables</span></a></li>
+<li value="4"><a href="https://www.geeksforgeeks.org/storage-classes-in-c-with-examples/"><span>C++ Storage Classes</span></a></li>
+<li value="5"><a href="https://www.geeksforgeeks.org/static-keyword-cpp/"><span>C++ Static Variables</span></a></li>
+</ul>
+<h2 id="cpp_data_types"><a class="header" href="https://portal.e-yantra.org/themeBook/wd/Learnings/C++/cpp_tutorials.html#cpp_data_types"><span>C++ Data Types and Literals</span></a></h2>
+<ul>
+<li value="1"><a href="https://www.geeksforgeeks.org/cpp-data-types/"><span>C++ Data Types</span></a></li>
+<li value="2"><a href="https://www.geeksforgeeks.org/cpp-literals/"><span>C++ Literals</span></a></li>
+<li value="3"><a href="https://www.geeksforgeeks.org/derived-data-types-in-c/"><span>C++ Derived Data Types</span></a></li>
+<li value="4"><a href="https://www.geeksforgeeks.org/user-defined-data-types-in-c/"><span>C++ User-Defined Data Types</span></a></li>
+<li value="5"><a href="https://www.geeksforgeeks.org/data-type-ranges-and-their-macros-in-c/"><span>C++ Data Type Ranges and Their Macros</span></a></li>
+<li value="6"><a href="https://www.geeksforgeeks.org/cpp-type-modifiers/"><span>C++ Type Modifiers</span></a></li>
+<li value="7"><a href="https://www.geeksforgeeks.org/type-conversion-in-c/"><span>C++ Data Type Conversion</span></a></li>
+<li value="8"><a href="https://www.geeksforgeeks.org/casting-operators-in-cpp/"><span>C++ Typecasting Operators</span></a></li>
+</ul>
+<h2 id="cpp_operators"><a class="header" href="https://portal.e-yantra.org/themeBook/wd/Learnings/C++/cpp_tutorials.html#cpp_operators"><span>C++ Operators</span></a></h2>
+<ul>
+<li value="1"><a href="https://www.geeksforgeeks.org/operators-in-cpp/"><span>C++ Operators</span></a></li>
+<li value="2"><a href="https://www.geeksforgeeks.org/cpp-arithmetic-operators/"><span>C++ Arithmetic Operators</span></a></li>
+<li value="3"><a href="https://www.geeksforgeeks.org/cpp-unary-operators/"><span>C++ Unary Operators</span></a></li>
+<li value="4"><a href="https://www.geeksforgeeks.org/cpp-bitwise-operators/"><span>C++ Bitwise Operators</span></a></li>
+<li value="5"><a href="https://www.geeksforgeeks.org/cpp-relational-operators/"><span>C++ Relational Operators</span></a></li>
+<li value="6"><a href="https://www.geeksforgeeks.org/cpp-logical-operators/"><span>C++ Logical Operators</span></a></li>
+<li value="7"><a href="https://www.geeksforgeeks.org/cpp-assignment-operators/"><span>C++ Assignment Operators</span></a></li>
+<li value="8"><a href="https://www.geeksforgeeks.org/cpp-ternary-or-conditional-operator/"><span>C++ Ternary/Conditional Operators</span></a></li>
+<li value="9"><a href="https://www.geeksforgeeks.org/cpp-sizeof-operator/"><span>C++ Sizeof Operator</span></a></li>
+<li value="10"><a href="https://www.geeksforgeeks.org/scope-resolution-operator-in-c/"><span>C++ Scope Resolution Operator</span></a></li>
+</ul>
+<h2 id="cpp_input_output"><a class="header" href="https://portal.e-yantra.org/themeBook/wd/Learnings/C++/cpp_tutorials.html#cpp_input_output"><span>C++ Input/Output</span></a></h2>
+<ul>
+<li value="1"><a href="https://www.geeksforgeeks.org/basic-input-output-c/"><span>C++ Basic Input / Output</span></a></li>
+<li value="2"><a href="https://www.geeksforgeeks.org/cin-in-c/"><span>C++ Standard Input Stream (cin)</span></a></li>
+<li value="3"><a href="https://www.geeksforgeeks.org/cout-in-c/"><span>C++ Standard Output Stream (cout)</span></a></li>
+<li value="4"><a href="https://www.geeksforgeeks.org/cerr-standard-error-stream-object-in-cpp/"><span>C++ Standard Error Stream (cerr)</span></a></li>
+<li value="5"><a href="https://www.geeksforgeeks.org/manipulators-in-c-with-examples/"><span>C++ Input / Output Manipulator</span></a></li>
+</ul>
+<h2 id="cpp_control_statements"><a class="header" href="https://portal.e-yantra.org/themeBook/wd/Learnings/C++/cpp_tutorials.html#cpp_control_statements"><span>C++ Control Statements</span></a></h2>
+<ul>
+<li value="1"><a href="https://www.geeksforgeeks.org/cpp-decision-making/"><span>C++ Decision Making</span></a></li>
+<li value="2"><a href="https://www.geeksforgeeks.org/c-c-if-statement-with-examples/"><span>C++ if Statement</span></a></li>
+<li value="3"><a href="https://www.geeksforgeeks.org/c-c-if-else-statement-with-examples/"><span>C++ if-else Statement</span></a></li>
+<li value="4"><a href="https://www.geeksforgeeks.org/c-c-if-else-if-ladder-with-examples/"><span>C++ if-else-if Ladder</span></a></li>
+<li value="5"><a href="https://www.geeksforgeeks.org/cpp-nested-if-else-statement/"><span>C++ Nested if-else Statement</span></a></li>
+<li value="6"><a href="https://www.geeksforgeeks.org/switch-statement-cc/"><span>C++ Switch Statement</span></a></li>
+<li value="7"><a href="https://www.geeksforgeeks.org/jump-statements-in-c/"><span>C++ Jump Statements</span></a></li>
+<li value="8"><a href="https://www.geeksforgeeks.org/loops-in-c-and-cpp/"><span>C++ Loops</span></a></li>
+<li value="9"><a href="https://www.geeksforgeeks.org/c-c-for-loop-with-examples/"><span>C++ for Loop</span></a></li>
+<li value="10"><a href="https://www.geeksforgeeks.org/range-based-loop-c/"><span>C++ Range-Based for Loop</span></a></li>
+<li value="11"><a href="https://www.geeksforgeeks.org/c-c-while-loop-with-examples/"><span>C++ while Loop</span></a></li>
+<li value="12"><a href="https://www.geeksforgeeks.org/c-c-do-while-loop-with-examples/"><span>C++ do…while Loop</span></a></li>
+</ul>
+<h2 id="cpp_functions"><a class="header" href="https://portal.e-yantra.org/themeBook/wd/Learnings/C++/cpp_tutorials.html#cpp_functions"><span>C++ Functions</span></a></h2>
+<ul>
+<li value="1"><a href="https://www.geeksforgeeks.org/functions-in-c/"><span>C++ Functions</span></a></li>
+<li value="2"><a href="https://www.geeksforgeeks.org/return-statement-in-cpp-with-examples/"><span>C++ return</span></a></li>
+<li value="3"><a href="https://www.geeksforgeeks.org/parameter-passing-techniques-in-cpp/"><span>C++ Parameter Passing Techniques</span></a></li>
+<li value="4"><a href="https://www.geeksforgeeks.org/difference-between-call-by-value-and-call-by-reference/"><span>Difference between Call by Value and Call by Reference</span></a></li>
+<li value="5"><a href="https://www.geeksforgeeks.org/default-arguments-c/"><span>C++ Default Arguments</span></a></li>
+<li value="6"><a href="https://www.geeksforgeeks.org/cpp-recursion/"><span>C++ Recursion</span></a></li>
+<li value="7"><a href="https://www.geeksforgeeks.org/inline-functions-cpp/"><span>C++ Inline Functions</span></a></li>
+<li value="8"><a href="https://www.geeksforgeeks.org/lambda-expression-in-c/"><span>C++ Lambda Expression</span></a></li>
+</ul>
+<h2 id="cpp_pointers"><a class="header" href="https://portal.e-yantra.org/themeBook/wd/Learnings/C++/cpp_tutorials.html#cpp_pointers"><span>C++ Pointers and References</span></a></h2>
+<ul>
+<li value="1"><a href="https://www.geeksforgeeks.org/pointers-and-references-in-c/"><span>C++ Pointers and References</span></a></li>
+<li value="2"><a href="https://www.geeksforgeeks.org/pointers-c-examples/"><span>C++ Pointers</span></a></li>
+<li value="3"><a href="https://www.geeksforgeeks.org/cpp-pointer-arithmetic/"><span>C++ Pointer Arithmetic</span></a></li>
+<li value="4"><a href="https://www.geeksforgeeks.org/dangling-void-null-wild-pointers/"><span>Dangling, Void, Null, and Wild Pointers</span></a></li>
+<li value="5"><a href="https://www.geeksforgeeks.org/applications-of-pointers-in-c-cpp/"><span>Applications of Pointers</span></a></li>
+<li value="6"><a href="https://www.geeksforgeeks.org/understanding-nullptr-c/"><span>C++ nullptr</span></a></li>
+<li value="7"><a href="https://www.geeksforgeeks.org/references-in-c/"><span>C++ References</span></a></li>
+<li value="8"><a href="https://www.geeksforgeeks.org/g-fact-25/"><span>Can references refer to an invalid location in C++?</span></a></li>
+<li value="9"><a href="https://www.geeksforgeeks.org/pointers-vs-references-cpp/"><span>Difference Between Pointers and References in C++</span></a></li>
+<li value="10"><a href="https://www.geeksforgeeks.org/passing-by-pointer-vs-passing-by-reference-in-c/"><span>Passing by pointer Vs Passing by Reference in C++</span></a></li>
+<li value="11"><a href="https://www.geeksforgeeks.org/when-do-we-pass-arguments-by-reference-or-pointer/"><span>When do we pass arguments by reference or pointer?</span></a></li>
+</ul>
+<h2 id="cpp_arrays"><a class="header" href="https://portal.e-yantra.org/themeBook/wd/Learnings/C++/cpp_tutorials.html#cpp_arrays"><span>C++ Arrays</span></a></h2>
+<ul>
+<li value="1"><a href="https://www.geeksforgeeks.org/cpp-arrays/"><span>C++ Arrays</span></a></li>
+<li value="2"><a href="https://www.geeksforgeeks.org/cpp-multidimensional-arrray/"><span>C++ Multidimensional Arrays</span></a></li>
+<li value="3"><a href="https://www.geeksforgeeks.org/pointer-array-array-pointer/"><span>C++ Pointer to an Array</span></a></li>
+<li value="4"><a href="https://www.geeksforgeeks.org/how-to-print-size-of-an-array-in-a-function-in-c/"><span>Size of Array parameter</span></a></li>
+<li value="5"><a href="https://www.geeksforgeeks.org/pass-array-to-functions-in-cpp/"><span>Passing Arrays to Functions in C++</span></a></li>
+<li value="6"><a href="https://www.geeksforgeeks.org/what-is-array-decay-in-c-how-can-it-be-prevented/"><span>What is Array Decay in C++? How can it be prevented?</span></a></li>
+</ul>
+<h2 id="cpp_strings"><a class="header" href="https://portal.e-yantra.org/themeBook/wd/Learnings/C++/cpp_tutorials.html#cpp_strings"><span>C++ Strings</span></a></h2>
+<ul>
+<li value="1"><a href="https://www.geeksforgeeks.org/strings-in-cpp/"><span>C++ Strings</span></a></li>
+<li value="2"><a href="https://www.geeksforgeeks.org/stdstring-class-in-c/"><span>C++ std::string Class</span></a></li>
+<li value="3"><a href="https://www.geeksforgeeks.org/array-strings-c-3-different-ways-create/"><span>C++ Array of Strings</span></a></li>
+<li value="4"><a href="https://www.geeksforgeeks.org/cpp-string-functions/"><span>C++ String Functions</span></a></li>
+<li value="5"><a href="https://www.geeksforgeeks.org/string-concatenation-in-cpp/"><span>C++ String Concatenation</span></a></li>
+<li value="6"><a href="https://www.geeksforgeeks.org/tokenizing-a-string-cpp/"><span>Tokenizing a String in C++</span></a></li>
+<li value="7"><a href="https://www.geeksforgeeks.org/substring-in-cpp/"><span>C++ Substring</span></a></li>
+</ul>
+<h2 id="cpp_struct_union"><a class="header" href="https://portal.e-yantra.org/themeBook/wd/Learnings/C++/cpp_tutorials.html#cpp_struct_union"><span>C++ Structures and Unions</span></a></h2>
+<ul>
+<li value="1"><a href="https://www.geeksforgeeks.org/structures-unions-and-enumerations-in-cpp/"><span>C++ Structures, Unions, and Enumerations</span></a></li>
+<li value="2"><a href="https://www.geeksforgeeks.org/structures-in-cpp/"><span>C++ Structures</span></a></li>
+<li value="3"><a href="https://www.geeksforgeeks.org/cpp-pointer-to-structure/"><span>C++ Pointer to Structure</span></a></li>
+<li value="4"><a href="https://www.geeksforgeeks.org/self-referential-structures/"><span>C++ Self-Referential Structures</span></a></li>
+<li value="5"><a href="https://www.geeksforgeeks.org/difference-c-structures-c-structures/"><span>Difference Between C Structures and C++ Structures</span></a></li>
+<li value="6"><a href="https://www.geeksforgeeks.org/cpp-unions/"><span>C++ Unions</span></a></li>
+<li value="7"><a href="https://www.geeksforgeeks.org/cpp-bit-fields/"><span>C++ Bit Fields</span></a></li>
+<li value="8"><a href="https://www.geeksforgeeks.org/enumeration-in-cpp/"><span>C++ Enumeration</span></a></li>
+<li value="9"><a href="https://www.geeksforgeeks.org/typedef-in-cpp/"><span>C++ typedef</span></a></li>
+<li value="10"><a href="https://www.geeksforgeeks.org/array-of-structures-vs-array-within-a-structure-in-c-and-cpp/"><span>Array of Structures vs Array within a Structure in C/C++</span></a></li>
+</ul>
+<h2 id="cpp_dynamic_memory"><a class="header" href="https://portal.e-yantra.org/themeBook/wd/Learnings/C++/cpp_tutorials.html#cpp_dynamic_memory"><span>C++ Dynamic Memory Management</span></a></h2>
+<ul>
+<li value="1"><a href="https://www.geeksforgeeks.org/dynamic-memory-allocation-in-c-using-malloc-calloc-free-and-realloc/"><span>C++ Dynamic Memory Management</span></a></li>
+<li value="2"><a href="https://www.geeksforgeeks.org/new-and-delete-operators-in-cpp-for-dynamic-memory/"><span>C++ new and delete Operators</span></a></li>
+<li value="3"><a href="https://www.geeksforgeeks.org/new-vs-malloc-and-free-vs-delete-in-c/"><span>new vs malloc() and free() vs delete in C++</span></a></li>
+<li value="4"><a href="https://www.geeksforgeeks.org/memory-leak-in-c-and-how-to-avoid-it/"><span>Memory leak in C++</span></a></li>
+<li value="5"><a href="https://www.geeksforgeeks.org/difference-between-static-and-dynamic-memory-allocation-in-c/"><span>Difference between Static and Dynamic Memory Allocation in C++</span></a></li>
+</ul>
+<h2 id="cpp_oops"><a class="header" href="https://portal.e-yantra.org/themeBook/wd/Learnings/C++/cpp_tutorials.html#cpp_oops"><span>C++ Object-Oriented Programming</span></a></h2>
+<ul>
+<li value="1"><a href="https://www.geeksforgeeks.org/object-oriented-programming-in-cpp/"><span>C++ Object Oriented Programming (OOPs)</span></a></li>
+<li value="2"><a href="https://www.geeksforgeeks.org/c-classes-and-objects/"><span>C++ Classes and Objects</span></a></li>
+<li value="3"><a href="https://www.geeksforgeeks.org/access-modifiers-in-c/"><span>C++ Access Modifiers</span></a></li>
+<li value="4"><a href="https://www.geeksforgeeks.org/friend-class-function-cpp/"><span>C++ Friend Class and Function</span></a></li>
+<li value="5"><a href="https://www.geeksforgeeks.org/constructors-c/"><span>C++ Constructors</span></a></li>
+<li value="6"><a href="https://www.geeksforgeeks.org/c-internals-default-constructors-set-1/"><span>C++ Default Constructors</span></a></li>
+<li value="7"><a href="https://www.geeksforgeeks.org/copy-constructor-in-cpp/"><span>C++ Copy Constructor</span></a></li>
+<li value="8"><a href="https://www.geeksforgeeks.org/destructors-c/"><span>C++ Destructors</span></a></li>
+<li value="9"><a href="https://www.geeksforgeeks.org/private-destructor-in-cpp/"><span>C++ Private Destructor</span></a></li>
+<li value="10"><a href="https://www.geeksforgeeks.org/when-is-a-copy-constructor-called-in-cpp/"><span>When is the Copy Constructor Called?</span></a></li>
+<li value="11"><a href="https://www.geeksforgeeks.org/shallow-copy-and-deep-copy-in-c/"><span>Shallow Copy and Deep Copy in C++</span></a></li>
+<li value="12"><a href="https://www.geeksforgeeks.org/g-fact-22/"><span>When Should We Write Our Own Copy Constructor?</span></a></li>
+<li value="13"><a href="https://www.geeksforgeeks.org/does-c-compiler-create-default-constructor-when-we-write-our-own/"><span>Does the Compiler Create a Default Constructor When We Write Our Own?</span></a></li>
+<li value="14"><a href="https://www.geeksforgeeks.org/cpp-static-data-members/"><span>C++ Static Data Members</span></a></li>
+<li value="15"><a href="https://www.geeksforgeeks.org/static-member-function-in-cpp/"><span>C++ Static Member Functions</span></a></li>
+<li value="16"><a href="https://www.geeksforgeeks.org/this-pointer-in-c/"><span>C++ this pointer</span></a></li>
+<li value="17"><a href="https://www.geeksforgeeks.org/scope-resolution-operator-vs-this-pointer-in-cpp/"><span>C++ Scope Resolution Operator vs this pointer</span></a></li>
+<li value="18"><a href="https://www.geeksforgeeks.org/local-class-in-cpp/"><span>C++ Local Class</span></a></li>
+<li value="19"><a href="https://www.geeksforgeeks.org/nested-classes-in-c/"><span>C++ Nested Classes</span></a></li>
+<li value="20"><a href="https://www.geeksforgeeks.org/enum-classes-in-c-and-their-advantage-over-enum-datatype/"><span>C++ enum Class</span></a></li>
+<li value="21"><a href="https://www.geeksforgeeks.org/structure-vs-class-in-cpp/"><span>Difference between Structure and Class in C++</span></a></li>
+<li value="22"><a href="https://www.geeksforgeeks.org/c-partially-object-oriented-language/"><span>Why C++ is a partially Object Oriented Language?</span></a></li>
+</ul>
+<h2 id="cpp_encapsulation"><a class="header" href="https://portal.e-yantra.org/themeBook/wd/Learnings/C++/cpp_tutorials.html#cpp_encapsulation"><span>C++ Encapsulation and Abstraction</span></a></h2>
+<ul>
+<li value="1"><a href="https://www.geeksforgeeks.org/encapsulation-in-c/"><span>C++ Encapsulation</span></a></li>
+<li value="2"><a href="https://www.geeksforgeeks.org/abstraction-in-c/"><span>C++ Abstraction</span></a></li>
+<li value="3"><a href="https://www.geeksforgeeks.org/difference-between-abstraction-and-encapsulation-in-c/"><span>Difference between Abstraction and Encapsulation in C++</span></a></li>
+</ul>
+<h2 id="cpp_polymorphism"><a class="header" href="https://portal.e-yantra.org/themeBook/wd/Learnings/C++/cpp_tutorials.html#cpp_polymorphism"><span>C++ Polymorphism</span></a></h2>
+<ul>
+<li value="1"><a href="https://www.geeksforgeeks.org/polymorphism-in-c/"><span>C++ Polymorphism</span></a></li>
+<li value="2"><a href="https://www.geeksforgeeks.org/function-overriding-in-cpp/"><span>C++ Function Overriding</span></a></li>
+<li value="3"><a href="https://www.geeksforgeeks.org/virtual-functions-and-runtime-polymorphism-in-c-set-1-introduction/"><span>C++ Virtual Functions and Runtime Polymorphism</span></a></li>
+<li value="4"><a href="https://www.geeksforgeeks.org/difference-between-compile-time-and-run-time-polymorphism-in-java/"><span>Difference between Compile-time and Run-time Polymorphism in C++</span></a></li>
+<li value="5"><a href="https://www.geeksforgeeks.org/difference-between-inheritance-and-polymorphism/"><span>Difference between Inheritance and Polymorphism in C++</span></a></li>
+</ul>
+<h2 id="cpp_function_overloading"><a class="header" href="https://portal.e-yantra.org/themeBook/wd/Learnings/C++/cpp_tutorials.html#cpp_function_overloading"><span>C++ Function Overloading</span></a></h2>
+<ul>
+<li value="1"><a href="https://www.geeksforgeeks.org/function-overloading-c/"><span>C++ Function Overloading</span></a></li>
+<li value="2"><a href="https://www.geeksforgeeks.org/constructor-overloading-c/"><span>C++ Constructor Overloading</span></a></li>
+<li value="3"><a href="https://www.geeksforgeeks.org/function-overloading-in-c/"><span>C++ Functions that Cannot be Overloaded</span></a></li>
+<li value="4"><a href="https://www.geeksforgeeks.org/function-overloading-and-const-functions/"><span>C++ Function Overloading and const Keyword</span></a></li>
+<li value="5"><a href="https://www.geeksforgeeks.org/function-overloading-and-return-type-in-cpp/"><span>C++ Function Overloading and Return Type</span></a></li>
+<li value="6"><a href="https://www.geeksforgeeks.org/g-fact-30-function-overloading-and-float-in-c/"><span>C++ Function Overloading and float Data Type</span></a></li>
+<li value="7"><a href="https://www.geeksforgeeks.org/c-plus-plus-gq/function-overloading-2-gq/"><span>C++ Function Overloading and Default Arguments</span></a></li>
+<li value="8"><a href="https://www.geeksforgeeks.org/can-main-overloaded-c/"><span>Can main() be overloaded?</span></a></li>
+<li value="9"><a href="https://www.geeksforgeeks.org/function-overloading-vs-function-overriding-in-cpp/"><span>C++ Function Overloading Vs Function Overriding</span></a></li>
+<li value="10"><a href="https://www.geeksforgeeks.org/advantages-and-disadvantages-of-function-overloading-in-cpp/"><span>Advantages and Disadvantages of C++ Function Overloading</span></a></li>
+</ul>
+<h2 id="cpp_operator_overloading"><a class="header" href="https://portal.e-yantra.org/themeBook/wd/Learnings/C++/cpp_tutorials.html#cpp_operator_overloading"><span>C++ Operator Overloading</span></a></h2>
+<ul>
+<li value="1"><a href="https://www.geeksforgeeks.org/operator-overloading-cpp/"><span>C++ Operator Overloading</span></a></li>
+<li value="2"><a href="https://www.geeksforgeeks.org/types-of-operator-overloading-in-c/"><span>Types of C++ Operator Overloading</span></a></li>
+<li value="3"><a href="https://www.geeksforgeeks.org/functors-in-cpp/"><span>C++ Functors</span></a></li>
+<li value="4"><a href="https://www.geeksforgeeks.org/what-are-the-operators-that-can-be-and-cannot-be-overloaded-in-cpp/"><span>C++ Operators that Cannot be Overloaded</span></a></li>
+</ul>
+<h2 id="cpp_inheritance"><a class="header" href="https://portal.e-yantra.org/themeBook/wd/Learnings/C++/cpp_tutorials.html#cpp_inheritance"><span>C++ Inheritance</span></a></h2>
+<ul>
+<li value="1"><a href="https://www.geeksforgeeks.org/inheritance-in-c/"><span>C++ Inheritance</span></a></li>
+<li value="2"><a href="https://www.geeksforgeeks.org/cpp-inheritance-access/"><span>C++ Inheritance Access</span></a></li>
+<li value="3"><a href="https://www.geeksforgeeks.org/multiple-inheritance-in-c/"><span>C++ Multiple Inheritance</span></a></li>
+<li value="4"><a href="https://www.geeksforgeeks.org/cpp-hierarchical-inheritance/"><span>C++ Hierarchical Inheritance</span></a></li>
+<li value="5"><a href="https://www.geeksforgeeks.org/cpp-multilevel-inheritance/"><span>C++ Multilevel Inheritance</span></a></li>
+<li value="6"><a href="https://www.geeksforgeeks.org/constructor-in-multiple-inheritance-in-cpp/"><span>C++ Constructor in Multiple Inheritance</span></a></li>
+<li value="7"><a href="https://www.geeksforgeeks.org/inheritance-and-friendship-in-cpp/"><span>C++ Inheritance and Friendship</span></a></li>
+<li value="8"><a href="https://www.geeksforgeeks.org/does-overloading-work-with-inheritance/"><span>Does Function Overloading Work with Inheritance in C++?</span></a></li>
+<li value="9"><a href="https://www.geeksforgeeks.org/difference-between-inheritance-and-polymorphism/"><span>Difference Between Inheritance and Polymorphism in C++</span></a></li>
+</ul>
+<h2 id="cpp_virtual"><a class="header" href="https://portal.e-yantra.org/themeBook/wd/Learnings/C++/cpp_tutorials.html#cpp_virtual"><span>C++ Virtual Functions</span></a></h2>
+<ul>
+<li value="1"><a href="https://www.geeksforgeeks.org/virtual-function-cpp/"><span>C++ Virtual Functions</span></a></li>
+<li value="2"><a href="https://www.geeksforgeeks.org/virtual-functions-in-derived-classes-in-cpp/"><span>C++ Virtual Functions in Derived Classes</span></a></li>
+<li value="3"><a href="https://www.geeksforgeeks.org/default-arguments-and-virtual-function-in-cpp/"><span>C++ Default Arguments and Virtual Function</span></a></li>
+<li value="4"><a href="https://www.geeksforgeeks.org/inline-virtual-function/"><span>C++ Inline Virtual Functions</span></a></li>
+<li value="5"><a href="https://www.geeksforgeeks.org/virtual-destructor/"><span>C++ Virtual Destructor</span></a></li>
+<li value="6"><a href="https://www.geeksforgeeks.org/advanced-c-virtual-constructor/"><span>C++ Virtual Constructor</span></a></li>
+<li value="7"><a href="https://www.geeksforgeeks.org/advanced-c-virtual-copy-constructor/"><span>C++ Virtual Copy Constructor</span></a></li>
+<li value="8"><a href="https://www.geeksforgeeks.org/pure-virtual-functions-and-abstract-classes/"><span>C++ Pure Virtual Functions and Abstract Class</span></a></li>
+<li value="9"><a href="https://www.geeksforgeeks.org/pure-virtual-destructor-c/"><span>C++ Pure Virtual Destructor in C++</span></a></li>
+<li value="10"><a href="https://www.geeksforgeeks.org/can-static-functions-be-virtual-in-cpp/"><span>Can Static Functions be Virtual in C++?</span></a></li>
+<li value="11"><a href="https://www.geeksforgeeks.org/g-fact-33/"><span>C++ RTTI (Run-Time Type Information)</span></a></li>
+<li value="12"><a href="https://www.geeksforgeeks.org/can-virtual-functions-be-private-in-c/"><span>Can C++ Virtual Functions be Private?</span></a></li>
+</ul>
+<h2 id="cpp_expception_handling"><a class="header" href="https://portal.e-yantra.org/themeBook/wd/Learnings/C++/cpp_tutorials.html#cpp_expception_handling"><span>C++ Exception Handling</span></a></h2>
+<ul>
+<li value="1"><a href="https://www.geeksforgeeks.org/exception-handling-c/"><span>C++ Exception Handling</span></a></li>
+<li value="2"><a href="https://www.geeksforgeeks.org/exception-handling-using-classes-in-cpp/"><span>C++ Exception Handling using Classes</span></a></li>
+<li value="3"><a href="https://www.geeksforgeeks.org/stack-unwinding-in-c/"><span>C++ Stack Unwinding </span></a></li>
+<li value="4"><a href="https://www.geeksforgeeks.org/user-defined-custom-exception-with-class-in-c/"><span>C++ User-Defined Exceptions</span></a></li>
+</ul>
+
+                </main>
+
+                <nav class="nav-wrapper" aria-label="Page navigation">
+                    <!-- Mobile navigation buttons -->
+                        
+
+                        
+
+                    <div style="clear: both"></div>
+                </nav>
+            </div>
+        </div>
+
+        
+
+    </div>
+
+
+
+
+    <script type="text/javascript">
+        window.playground_copyable = true;
+    </script>
+
+
+    <script src="./C++ Tutorials - eYRC 2024-25_ Warehouse Drone (WD)_files/elasticlunr.min.js.download" type="text/javascript" charset="utf-8"></script>
+    <script src="./C++ Tutorials - eYRC 2024-25_ Warehouse Drone (WD)_files/mark.min.js.download" type="text/javascript" charset="utf-8"></script>
+    <script src="./C++ Tutorials - eYRC 2024-25_ Warehouse Drone (WD)_files/searcher.js.download" type="text/javascript" charset="utf-8"></script>
+
+    <script src="./C++ Tutorials - eYRC 2024-25_ Warehouse Drone (WD)_files/clipboard.min.js.download" type="text/javascript" charset="utf-8"></script>
+    <script src="./C++ Tutorials - eYRC 2024-25_ Warehouse Drone (WD)_files/highlight.js.download" type="text/javascript" charset="utf-8"></script>
+    <script src="./C++ Tutorials - eYRC 2024-25_ Warehouse Drone (WD)_files/book.js.download" type="text/javascript" charset="utf-8"></script>
+
+    <!-- Custom JS scripts -->
+
+
+
+    
+
+    <script>
+        document.getElementById('code_playground_button').addEventListener('click', function() {
+            var py_button = document.getElementById('py_button');
+            var cplus_button = document.getElementById('cplus_button');
+            
+            py_button.classList.toggle('hidden');
+            cplus_button.classList.toggle('hidden');
+        });
+
+        document.getElementById('py_button').addEventListener('click', function() {
+            window.open('https://www.w3schools.com/python/trypython.asp?filename=demo_default', '_blank'); // Open in new tab
+        });
+
+        document.getElementById('cplus_button').addEventListener('click', function() {
+            window.open('https://www.w3schools.com/CPP/trycpp.asp?filename=demo_helloworld', '_blank'); // Open in new tab
+        });
+    </script>
+    
+
+
+</body></html>

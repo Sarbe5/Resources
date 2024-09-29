@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<!-- saved from url=(0136)file:///C:/Users/Sarbeswar%20Nayak/OneDrive/eY/Learnings/Github/Git%20and%20GitHub%20-%20eYRC%202024-25_%20Warehouse%20Drone%20(WD).html -->
+<html lang="en" class="js sidebar-hidden sidebar-visible sustain"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Book generated using mdBook -->
+    
+    <title>Git and GitHub - eYRC 2024-25: Warehouse Drone (WD)</title>
+
+    
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="rgba(0, 0, 0, 0)">
+
+    <link rel="shortcut icon" href="https://e-yantra.org/logo/eyantra/press/25eyantra_logo~SmallLogo_html.svg">
+    <link rel="stylesheet" href="./Git and GitHub - eYRC 2024-25_ Warehouse Drone (WD)_files/variables.css">
+    <link rel="stylesheet" href="./Git and GitHub - eYRC 2024-25_ Warehouse Drone (WD)_files/general.css">
+    <link rel="stylesheet" href="./Git and GitHub - eYRC 2024-25_ Warehouse Drone (WD)_files/chrome.css">
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="./Git and GitHub - eYRC 2024-25_ Warehouse Drone (WD)_files/all.min.css">
+    <link rel="stylesheet" href="./Git and GitHub - eYRC 2024-25_ Warehouse Drone (WD)_files/font-awesome.css">
+    <link rel="stylesheet" href="./Git and GitHub - eYRC 2024-25_ Warehouse Drone (WD)_files/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" href="./Git and GitHub - eYRC 2024-25_ Warehouse Drone (WD)_files/highlight.css">
+    <link rel="stylesheet" href="./Git and GitHub - eYRC 2024-25_ Warehouse Drone (WD)_files/tomorrow-night.css" disabled="">
+    <link rel="stylesheet" href="./Git and GitHub - eYRC 2024-25_ Warehouse Drone (WD)_files/ayu-highlight.css" disabled="">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="./Git and GitHub - eYRC 2024-25_ Warehouse Drone (WD)_files/css2" rel="stylesheet">
+
+    <!-- Custom theme stylesheets -->
+
+    <!-- MathJax -->
+    <script async="" type="text/javascript" src="./Git and GitHub - eYRC 2024-25_ Warehouse Drone (WD)_files/MathJax.js.download"></script>
+
+    <style>
+
+        
+        .button-container {
+            position: fixed; /* Fixed position for staying near the bottom-right corner */
+            bottom: 8%; /* Adjust distance from the bottom as a percentage */
+            right: 8%; /* Adjust distance from the right as a percentage */
+            width: 150px; /* Set the width of the container */
+            height: 150px; /* Set the height of the container */
+        }
+
+        .my-button {
+            border-radius: 50%; /* Round button */
+            font-size: 16px;
+            border: none;
+            background-color: #ffffff;
+            color: rgb(0, 0, 0);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            position: absolute;
+        }
+
+        .my-button:hover {
+            background-color: #008B8B;
+        }
+
+        /* Button 1 Styles */
+        #code_playground_button {
+            width: 50px; /* Fixed width for Button 1 */
+            height: 50px; /* Fixed height for Button 1 */
+            top: 50%;
+            left: 100%;
+            transform: translate(-50%, -50%);
+            font-size: 24px; /* Font size for the icon */
+        }
+
+        /* Button 2 Styles */
+        #py_button {
+            width: 60px; /* Fixed width for Button 2 */
+            height: 60px; /* Fixed height for Button 2 */
+            top: 0;
+            left: 0;
+            font-size: 24px; /* Font size for the icon */
+        }
+
+        /* Button 3 Styles */
+        #cplus_button {
+            width: 60px; /* Fixed width for Button 3 */
+            height: 60px; /* Fixed height for Button 3 */
+            bottom: 0;
+            left: 0;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .cplusplus-icon {
+            width: 3em; 
+            height: 3em;
+        }
+
+        .python-icon {
+            width: 1.5em; 
+            height: 1.5em;
+        }
+    </style>
+<style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuRadioCheck.RTL {right: 1em; left: auto}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><script src="file:///C:/Users/Sarbeswar%20Nayak/OneDrive/eY/searchindex.js"></script></head>
+<body><div id="MathJax_Message" style="display: none;"></div><div id="MathJax_Message" style="display: none;"></div>
+    <!-- Provide site root to javascript -->
+    <script type="text/javascript">
+        var path_to_root = "../../";
+        var default_theme = "sustain";
+        <!-- window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "sustain"; -->
+    </script>
+
+    <!-- Work around some values being stored in localStorage wrapped in quotes -->
+    <script type="text/javascript">
+        try {
+            var theme = localStorage.getItem('mdbook-theme');
+            var sidebar = localStorage.getItem('mdbook-sidebar');
+
+            if (theme.startsWith('"') && theme.endsWith('"')) {
+                localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+            }
+
+            if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+            }
+        } catch (e) { }
+    </script>
+
+    <!-- Set the theme before any content is loaded, prevents flash -->
+    <script type="text/javascript">
+        var theme;
+        try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+        if (theme === null || theme === undefined) { theme = default_theme; }
+        var html = document.querySelector('html');
+        html.classList.remove('no-js')
+        html.classList.remove('sustain')
+        html.classList.add(theme);
+        html.classList.add('js');
+    </script>
+
+    <!-- Hide / unhide sidebar before it is displayed -->
+    <script type="text/javascript">
+        var html = document.querySelector('html');
+        var sidebar = 'hidden';
+        if (document.body.clientWidth >= 1080) {
+            try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+            sidebar = sidebar || 'visible';
+        }
+        html.classList.remove('sidebar-visible');
+        html.classList.add("sidebar-" + sidebar);
+    </script>
+
+    <nav id="sidebar" class="sidebar" aria-label="Table of contents" aria-hidden="true">
+        <div class="sidebar-scrollbox">
+            <ol class="chapter"><li class="chapter-item affix "></li><li class="part-title">Welcome to Warehouse Drone theme!</li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/welcome.html" tabindex="-1">Home</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/bulletin_board.html" tabindex="-1">Bulletin board</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/deadlines.html" tabindex="-1">Deadlines</a></li><li class="chapter-item affix "></li><li class="spacer"></li><li class="chapter-item affix "></li><li class="part-title">Learning Section</li><li class="chapter-item expanded "><a href="https://portal.e-yantra.org/themeBook/wd/WD-learn-section-intro.html" tabindex="-1">Learnings</a><a class="toggle" tabindex="-1"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/Linux/Linux.html" tabindex="-1">Linux</a><a class="toggle" tabindex="-1"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/Linux/learn-linux-file-system.html" tabindex="-1">Linux File System Directories</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/Linux/learn-linux-file-permissions.html" tabindex="-1">Linux File Permissions</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/Linux/learn-linux-command.html" tabindex="-1">Linux Commands</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/Linux/shell_scripting.html" tabindex="-1">Shell Scripting</a><a class="toggle" tabindex="-1"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/Linux/Shell_scripting_example.html" tabindex="-1">Example 1</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/Linux/shell_scripting_example2.html" tabindex="-1">Example 2</a></li></ol></li></ol></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/Python/python.html" tabindex="-1">Python</a><a class="toggle" tabindex="-1"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/Python/py_tutorials.html" tabindex="-1">Python Tutorials</a></li></ol></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/C++/c++.html" tabindex="-1">C++</a><a class="toggle" tabindex="-1"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/C++/cpp_tutorials.html" tabindex="-1">C++ Tutorials</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/C++/cpp_books.html" tabindex="-1">C++ Books</a></li></ol></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/ROS/ROS.html" tabindex="-1">ROS 2</a><a class="toggle" tabindex="-1"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/ROS/ros_books.html" tabindex="-1">ROS 2 Books</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/ROS/ROS2_concepts.html" tabindex="-1">ROS 2 Concepts</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/ROS/ROS2_tutorials.html" tabindex="-1">ROS 2 Tutorials</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/ROS/turtlesim_tutorials.html" tabindex="-1">Turtlesim Resources</a></li></ol></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/Gazebo_URDF/GZ_URDF.html" tabindex="-1">Gazebo &amp; URDF</a><a class="toggle" tabindex="-1"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/Gazebo_URDF/Gazebo.html" tabindex="-1">Gazebo Tutorials</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/Gazebo_URDF/URDF.html" tabindex="-1">URDF ROS 2</a></li></ol></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/Quadcopter/quadcopters.html" tabindex="-1">Quadcopters</a><a class="toggle" tabindex="-1"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/Quadcopter/swift_model.html" tabindex="-1">Understanding the Swift Pico model in gazebo simulator</a></li></ol></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/Control_System/control_systems.html" tabindex="-1">Control Systems</a><a class="toggle" tabindex="-1"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/Control_System/pid_drones.html" tabindex="-1">PID Controller For Drones</a></li></ol></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/Image_Processing/image_processing.html" tabindex="-1">Image Processing</a><a class="toggle" tabindex="-1"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/Image_Processing/opencv_py.html" tabindex="-1">OpenCV Python</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/Image_Processing/ros_opencv.html" tabindex="-1">ROS-OpenCV</a></li></ol></li><li class="chapter-item expanded "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/Github/git_github.html" class="active" tabindex="-1">Git and GitHub</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/Coding_Standard/coding_std.html" tabindex="-1">Coding Standards</a></li></ol></li><li class="chapter-item "></li><li class="part-title">Competition Section</li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Stage_1.html" tabindex="-1">Stage 1</a><a class="toggle" tabindex="-1"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Task_0/task_0.html" tabindex="-1">Task 0</a><a class="toggle" tabindex="-1"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Task_0/Installation_task0.html" tabindex="-1">Installation of Ubuntu and ROS</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Task_0/Submission_task0.html" tabindex="-1">Submission Instructions </a></li></ol></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Task_1/task_1.html" tabindex="-1">Task 1</a><a class="toggle" tabindex="-1"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Task_1/task_1a.html" tabindex="-1">Task 1A</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Task_1/task_1b.html" tabindex="-1">Task 1B</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Task_1/task_1c.html" tabindex="-1">Task 1C</a></li></ol></li></ol></li><li class="chapter-item "></li><li class="part-title">Live Sessions</li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/live_sessions/task_0_1.html" tabindex="-1">Task 0 &amp; 1</a></li></ol>
+        </div>
+        <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+    </nav>
+
+    <div id="page-wrapper" class="page-wrapper">
+
+        <div class="page">
+            <div id="menu-bar-hover-placeholder"></div>
+            
+
+            <script type="text/javascript">
+                if (document.body.clientWidth < 600) {
+                    let logo = document.getElementById("eLogo");
+                    logo.style = "display: none";
+                    document.getElementById("RCName").style = "display: none";
+                    document.getElementById("image-container").style = "justify-content: center";
+                }
+                if (document.body.clientWidth < 400) {
+                    let rB = document.getElementsByClassName("right-buttons");
+                    rB[0].style = "display:none";
+                }
+            </script>
+
+            <div id="search-wrapper" class="hidden">
+                <form id="searchbar-outer" class="searchbar-outer">
+                    <input type="search" name="search" id="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                </form>
+                <div id="searchresults-outer" class="searchresults-outer hidden">
+                    <div id="searchresults-header" class="searchresults-header"></div>
+                    <ul id="searchresults">
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+            <script type="text/javascr&lt;link rel=" stylesheet"="" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">uerySelectorAll('#sidebar a')).forEach(function(link) {
+                    link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                });
+            </script>
+
+            <div id="content" class="content">
+                <main>
+                    <p style="text-align: center;">
+    <img src="./Git and GitHub - eYRC 2024-25_ Warehouse Drone (WD)_files/github-mark.png" alt="Git" width="8%" style="vertical-align: middle;">
+    &amp;
+    <img src="./Git and GitHub - eYRC 2024-25_ Warehouse Drone (WD)_files/GitHub_Logo.png" alt="GitHub" width="20%" style="vertical-align: middle;">
+</p>
+<h2 id="about-github"><a class="header" href="https://portal.e-yantra.org/themeBook/wd/Learnings/Github/git_github.html#about-github">About GitHub</a></h2>
+<p><strong>GitHub</strong> is a cloud-based platform where you can store, share, and collaborate with others to write code. Storing your code in a "repository" on GitHub allows you to:</p>
+<ul>
+<li>Showcase or share your work.</li>
+<li>Track and manage changes to your code over time.</li>
+<li>Let others review your code and make suggestions for improvement.</li>
+<li>Collaborate on a shared project without impacting your collaborators' work before you're ready to integrate changes.</li>
+</ul>
+<p>Collaborative working, one of GitHub’s fundamental features, is made possible by the open-source software <strong>Git</strong>, upon which GitHub is built.</p>
+<h2 id="about-git"><a class="header" href="https://portal.e-yantra.org/themeBook/wd/Learnings/Github/git_github.html#about-git">About Git</a></h2>
+<p><strong>Git</strong> is a version control system that intelligently tracks changes in files. Git is particularly useful when you and a group of people are all making changes to the same files simultaneously.</p>
+<p>Typically, in a Git-based workflow, you would:</p>
+<ol>
+<li>Create a branch off from the main copy of files that you (and your collaborators) are working on.</li>
+<li>Make edits to the files independently and safely on your own personal branch.</li>
+<li>Let Git intelligently merge your specific changes back into the main copy of files, so your changes don't interfere with others' updates.</li>
+<li>Let Git keep track of all changes so everyone stays up-to-date with the latest version of the project.</li>
+</ol>
+<p>For more details, see <a href="https://git-scm.com/about">About Git</a>.</p>
+<h2 id="how-do-git-and-github-work-together"><a class="header" href="https://portal.e-yantra.org/themeBook/wd/Learnings/Github/git_github.html#how-do-git-and-github-work-together">How Do Git and GitHub Work Together?</a></h2>
+<p>When you upload files to GitHub, you store them in a <strong>Git repository</strong>. This means that when you make changes (or "commits") to your files in GitHub, Git will automatically track and manage those changes.</p>
+<p>There are plenty of Git-related actions you can complete directly on GitHub in your browser, such as creating a Git repository, branches, and editing files.</p>
+<p>However, most people work on their files locally (on their own computer), then sync these local changes—and all related Git data—with the central "remote" repository on GitHub. Tools like <strong>GitHub Desktop</strong> can help with this.</p>
+<p>Once you collaborate with others on the same repository, you’ll continually:</p>
+<ul>
+<li><strong>Pull</strong> the latest changes made by your collaborators from the remote repository on GitHub.</li>
+<li><strong>Push</strong> your changes back to the same remote repository on GitHub.</li>
+</ul>
+<p>Git intelligently handles this flow of changes, while GitHub provides features like <strong>pull requests</strong> to manage the process.</p>
+<h2 id="where-do-i-start"><a class="header" href="https://portal.e-yantra.org/themeBook/wd/Learnings/Github/git_github.html#where-do-i-start">Where Do I Start?</a></h2>
+<p>If you're new to GitHub and unfamiliar with Git, we recommend starting with the articles in the <a href="https://docs.github.com/en/get-started/start-your-journey">Start Your Journey</a> category. These articles focus on tasks you can complete directly in your browser on GitHub and will help you to:</p>
+<ol>
+<li><strong>Create an account on GitHub.</strong></li>
+<li><strong>Learn the "GitHub Flow"</strong> and the key principles of collaborative working (branches, commits, pull requests, merges).</li>
+<li><strong>Personalize your profile</strong> to share your interests and skills.</li>
+<li><strong>Explore GitHub</strong> to find inspiration for your own projects and connect with others.</li>
+<li><strong>Learn how to download interesting code</strong> for your own use.</li>
+<li><strong>Learn how to upload your work</strong> to a GitHub repository.</li>
+</ol>
+<h2 id="getting-started-with-git"><a class="header" href="https://portal.e-yantra.org/themeBook/wd/Learnings/Github/git_github.html#getting-started-with-git">Getting Started with Git</a></h2>
+<ul>
+<li><a href="https://docs.github.com/en/get-started/getting-started-with-git/set-up-git">Set Up Git</a></li>
+<li><a href="https://docs.github.com/en/get-started/getting-started-with-git/setting-your-username-in-git">Set Your Username</a></li>
+<li><a href="https://docs.github.com/en/get-started/getting-started-with-git/caching-your-github-credentials-in-git">Caching Credentials</a></li>
+<li><a href="https://docs.github.com/en/get-started/getting-started-with-git/why-is-git-always-asking-for-my-password">Git Passwords</a></li>
+<li><a href="https://docs.github.com/en/get-started/getting-started-with-git/git-workflows">Git Workflows</a></li>
+<li><a href="https://docs.github.com/en/get-started/getting-started-with-git/about-remote-repositories">About Remote Repositories</a></li>
+<li><a href="https://docs.github.com/en/get-started/getting-started-with-git/managing-remote-repositories">Manage Remote Repositories</a></li>
+<li><a href="https://docs.github.com/en/get-started/getting-started-with-git/associating-text-editors-with-git">Associate Text Editors</a></li>
+<li><a href="https://docs.github.com/en/get-started/getting-started-with-git/configuring-git-to-handle-line-endings">Handle Line Endings</a></li>
+<li><a href="https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files">Ignoring Files</a></li>
+<li><a href="https://docs.github.com/en/get-started/getting-started-with-git/git-cheatsheet">Git Cheatsheet</a></li>
+</ul>
+<h2 id="using-git"><a class="header" href="https://portal.e-yantra.org/themeBook/wd/Learnings/Github/git_github.html#using-git">Using Git</a></h2>
+<ul>
+<li><a href="https://docs.github.com/en/get-started/using-git/about-git">About Git</a></li>
+<li><a href="https://docs.github.com/en/get-started/using-git/pushing-commits-to-a-remote-repository">Push Commits to a Remote</a></li>
+<li><a href="https://docs.github.com/en/get-started/using-git/getting-changes-from-a-remote-repository">Get Changes from a Remote</a></li>
+<li><a href="https://docs.github.com/en/get-started/using-git/dealing-with-non-fast-forward-errors">Non-Fast-Forward Error</a></li>
+<li><a href="https://docs.github.com/en/get-started/using-git/splitting-a-subfolder-out-into-a-new-repository">Splitting a Subfolder</a></li>
+<li><a href="https://docs.github.com/en/get-started/using-git/about-git-subtree-merges">About Git Subtree Merges</a></li>
+<li><a href="https://docs.github.com/en/get-started/using-git/about-git-rebase">About Git Rebase</a></li>
+<li><a href="https://docs.github.com/en/get-started/using-git/using-git-rebase-on-the-command-line">Git Rebase</a></li>
+<li><a href="https://docs.github.com/en/get-started/using-git/resolving-merge-conflicts-after-a-git-rebase">Resolve Conflicts After Rebase</a></li>
+<li><a href="https://docs.github.com/en/get-started/using-git/dealing-with-special-characters-in-branch-and-tag-names">Special Characters in Names</a></li>
+<li><a href="https://docs.github.com/en/get-started/using-git/troubleshooting-the-2-gb-push-limit">Maximum Push Limit</a></li>
+</ul>
+
+                </main>
+
+                
+            </div>
+        </div>
+
+        
+
+    </div>
+
+
+
+
+    <script type="text/javascript">
+        window.playground_copyable = true;
+    </script>
+
+
+    <script src="./Git and GitHub - eYRC 2024-25_ Warehouse Drone (WD)_files/elasticlunr.min.js.download" type="text/javascript" charset="utf-8"></script>
+    <script src="./Git and GitHub - eYRC 2024-25_ Warehouse Drone (WD)_files/mark.min.js.download" type="text/javascript" charset="utf-8"></script>
+    <script src="./Git and GitHub - eYRC 2024-25_ Warehouse Drone (WD)_files/searcher.js.download" type="text/javascript" charset="utf-8"></script>
+
+    <script src="./Git and GitHub - eYRC 2024-25_ Warehouse Drone (WD)_files/clipboard.min.js.download" type="text/javascript" charset="utf-8"></script>
+    <script src="./Git and GitHub - eYRC 2024-25_ Warehouse Drone (WD)_files/highlight.js.download" type="text/javascript" charset="utf-8"></script>
+    <script src="./Git and GitHub - eYRC 2024-25_ Warehouse Drone (WD)_files/book.js.download" type="text/javascript" charset="utf-8"></script>
+
+    <!-- Custom JS scripts -->
+
+
+
+    <div class="button-container">
+        <!-- Use Font Awesome icon for Button 1 -->
+        
+        <!-- Use Font Awesome Python icon for Button 2 -->
+        <button id="py_button" class="my-button hidden">
+            <img class="python-icon" src="./Git and GitHub - eYRC 2024-25_ Warehouse Drone (WD)_files/python_logo.svg" alt="Python Icon">
+        </button>
+        <button id="cplus_button" class="my-button hidden">
+            <img class="cplusplus-icon" src="./Git and GitHub - eYRC 2024-25_ Warehouse Drone (WD)_files/cpp_logo.svg" alt="C++ Icon">
+        </button>
+    </div>
+
+    <script>
+        document.getElementById('code_playground_button').addEventListener('click', function() {
+            var py_button = document.getElementById('py_button');
+            var cplus_button = document.getElementById('cplus_button');
+            
+            py_button.classList.toggle('hidden');
+            cplus_button.classList.toggle('hidden');
+        });
+
+        document.getElementById('py_button').addEventListener('click', function() {
+            window.open('https://www.w3schools.com/python/trypython.asp?filename=demo_default', '_blank'); // Open in new tab
+        });
+
+        document.getElementById('cplus_button').addEventListener('click', function() {
+            window.open('https://www.w3schools.com/CPP/trycpp.asp?filename=demo_helloworld', '_blank'); // Open in new tab
+        });
+    </script>
+    
+
+
+</body></html>

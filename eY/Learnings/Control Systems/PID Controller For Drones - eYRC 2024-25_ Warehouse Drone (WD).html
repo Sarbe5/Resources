@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<!-- saved from url=(0160)file:///C:/Users/Sarbeswar%20Nayak/OneDrive/eY/Learnings/Control%20Systems/PID%20Controller%20For%20Drones%20-%20eYRC%202024-25_%20Warehouse%20Drone%20(WD).html -->
+<html lang="en" class="js sidebar-visible sustain"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Book generated using mdBook -->
+    
+    <title>PID Controller For Drones - eYRC 2024-25: Warehouse Drone (WD)</title>
+
+    
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="rgba(0, 0, 0, 0)">
+
+    <link rel="shortcut icon" href="https://e-yantra.org/logo/eyantra/press/25eyantra_logo~SmallLogo_html.svg">
+    <link rel="stylesheet" href="./PID Controller For Drones - eYRC 2024-25_ Warehouse Drone (WD)_files/variables.css">
+    <link rel="stylesheet" href="./PID Controller For Drones - eYRC 2024-25_ Warehouse Drone (WD)_files/general.css">
+    <link rel="stylesheet" href="./PID Controller For Drones - eYRC 2024-25_ Warehouse Drone (WD)_files/chrome.css">
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="./PID Controller For Drones - eYRC 2024-25_ Warehouse Drone (WD)_files/all.min.css">
+    <link rel="stylesheet" href="./PID Controller For Drones - eYRC 2024-25_ Warehouse Drone (WD)_files/font-awesome.css">
+    <link rel="stylesheet" href="./PID Controller For Drones - eYRC 2024-25_ Warehouse Drone (WD)_files/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" href="./PID Controller For Drones - eYRC 2024-25_ Warehouse Drone (WD)_files/highlight.css">
+    <link rel="stylesheet" href="./PID Controller For Drones - eYRC 2024-25_ Warehouse Drone (WD)_files/tomorrow-night.css" disabled="">
+    <link rel="stylesheet" href="./PID Controller For Drones - eYRC 2024-25_ Warehouse Drone (WD)_files/ayu-highlight.css" disabled="">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="./PID Controller For Drones - eYRC 2024-25_ Warehouse Drone (WD)_files/css2" rel="stylesheet">
+
+    <!-- Custom theme stylesheets -->
+
+    <!-- MathJax -->
+    <script async="" type="text/javascript" src="./PID Controller For Drones - eYRC 2024-25_ Warehouse Drone (WD)_files/MathJax.js.download"></script>
+
+    <style>
+
+        
+        .button-container {
+            position: fixed; /* Fixed position for staying near the bottom-right corner */
+            bottom: 8%; /* Adjust distance from the bottom as a percentage */
+            right: 8%; /* Adjust distance from the right as a percentage */
+            width: 150px; /* Set the width of the container */
+            height: 150px; /* Set the height of the container */
+        }
+
+        .my-button {
+            border-radius: 50%; /* Round button */
+            font-size: 16px;
+            border: none;
+            background-color: #ffffff;
+            color: rgb(0, 0, 0);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            position: absolute;
+        }
+
+        .my-button:hover {
+            background-color: #008B8B;
+        }
+
+        /* Button 1 Styles */
+        #code_playground_button {
+            width: 50px; /* Fixed width for Button 1 */
+            height: 50px; /* Fixed height for Button 1 */
+            top: 50%;
+            left: 100%;
+            transform: translate(-50%, -50%);
+            font-size: 24px; /* Font size for the icon */
+        }
+
+        /* Button 2 Styles */
+        #py_button {
+            width: 60px; /* Fixed width for Button 2 */
+            height: 60px; /* Fixed height for Button 2 */
+            top: 0;
+            left: 0;
+            font-size: 24px; /* Font size for the icon */
+        }
+
+        /* Button 3 Styles */
+        #cplus_button {
+            width: 60px; /* Fixed width for Button 3 */
+            height: 60px; /* Fixed height for Button 3 */
+            bottom: 0;
+            left: 0;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .cplusplus-icon {
+            width: 3em; 
+            height: 3em;
+        }
+
+        .python-icon {
+            width: 1.5em; 
+            height: 1.5em;
+        }
+    </style>
+<style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuRadioCheck.RTL {right: 1em; left: auto}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><script src="file:///C:/Users/Sarbeswar%20Nayak/OneDrive/eY/searchindex.js"></script></head>
+<body><div id="MathJax_Message" style="display: none;"></div><div id="MathJax_Message" style="display: none;"></div>
+    <!-- Provide site root to javascript -->
+    <script type="text/javascript">
+        var path_to_root = "../../";
+        var default_theme = "sustain";
+        <!-- window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "sustain"; -->
+    </script>
+
+    <!-- Work around some values being stored in localStorage wrapped in quotes -->
+    <script type="text/javascript">
+        try {
+            var theme = localStorage.getItem('mdbook-theme');
+            var sidebar = localStorage.getItem('mdbook-sidebar');
+
+            if (theme.startsWith('"') && theme.endsWith('"')) {
+                localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+            }
+
+            if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+            }
+        } catch (e) { }
+    </script>
+
+    <!-- Set the theme before any content is loaded, prevents flash -->
+    <script type="text/javascript">
+        var theme;
+        try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+        if (theme === null || theme === undefined) { theme = default_theme; }
+        var html = document.querySelector('html');
+        html.classList.remove('no-js')
+        html.classList.remove('sustain')
+        html.classList.add(theme);
+        html.classList.add('js');
+    </script>
+
+    <!-- Hide / unhide sidebar before it is displayed -->
+    <script type="text/javascript">
+        var html = document.querySelector('html');
+        var sidebar = 'hidden';
+        if (document.body.clientWidth >= 1080) {
+            try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+            sidebar = sidebar || 'visible';
+        }
+        html.classList.remove('sidebar-visible');
+        html.classList.add("sidebar-" + sidebar);
+    </script>
+
+    
+
+    <div id="page-wrapper" class="page-wrapper">
+
+        <div class="page">
+            <div id="menu-bar-hover-placeholder"></div>
+            
+
+            <script type="text/javascript">
+                if (document.body.clientWidth < 600) {
+                    let logo = document.getElementById("eLogo");
+                    logo.style = "display: none";
+                    document.getElementById("RCName").style = "display: none";
+                    document.getElementById("image-container").style = "justify-content: center";
+                }
+                if (document.body.clientWidth < 400) {
+                    let rB = document.getElementsByClassName("right-buttons");
+                    rB[0].style = "display:none";
+                }
+            </script>
+
+            <div id="search-wrapper" class="hidden">
+                <form id="searchbar-outer" class="searchbar-outer">
+                    <input type="search" name="search" id="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                </form>
+                <div id="searchresults-outer" class="searchresults-outer hidden">
+                    <div id="searchresults-header" class="searchresults-header"></div>
+                    <ul id="searchresults">
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+            <script type="text/javascr&lt;link rel=" stylesheet"="" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">uerySelectorAll('#sidebar a')).forEach(function(link) {
+                    link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                });
+            </script>
+
+            <div id="content" class="content">
+                <main>
+                    <center>
+<h1 id="pid-controller-for-drones"><a class="header" href="https://portal.e-yantra.org/themeBook/wd/Learnings/Control_System/pid_drones.html#pid-controller-for-drones">PID Controller For Drones</a></h1>
+</center>
+<ul>
+<li><h3 id="abstract"><a class="header" href="https://portal.e-yantra.org/themeBook/wd/Learnings/Control_System/pid_drones.html#abstract">Abstract</a></h3></li>
+<div align="justify">Systems can broadly be divided into two types; open loop systems and closed loop systems. An open loop system is also called an uncontrolledsystem. The output of such a system is not controlled as the system has no feedback. a closed loop system is also called a controlled system. The output of such a system is controlled as it receives feedback. PID is an example of a close loop system. Proportional-integral-derivative (PID) controllers are widely used in industrial systems despite the significant developments of recent years in control theory and technology. They perform well for a wide class of processes. Also, they give robust performance for a wide range of operating conditions and, they are easy to implement using analogue or digital hardware.</div>
+<li><h3 id="whycon-coordinates"><a class="header" href="https://portal.e-yantra.org/themeBook/wd/Learnings/Control_System/pid_drones.html#whycon-coordinates">Whycon Coordinates</a></h3></li>
+<div align="justify">The figure shows the output from the vision sensor with whycon coordinates as output. The direction for positive x-axis and positive y-axis are as shown in the figure above for the whycon coordinate system. The positive direction for the z-axis is away from the vision sensor.</div>
+<center>
+<figure>
+  <img src="./PID Controller For Drones - eYRC 2024-25_ Warehouse Drone (WD)_files/whycon_coordinates.png" alt="whycon_coordinates" width="40%" height="40%">
+  <figcaption>Figure 1: Whycon Coordinates</figcaption>
+</figure>
+</center>
+<li><h3 id="types-of-controllers"><a class="header" href="https://portal.e-yantra.org/themeBook/wd/Learnings/Control_System/pid_drones.html#types-of-controllers">Types of Controllers</a></h3></li>
+<ol>
+<li><h4 id="proportional-controller-p-controller"><a class="header" href="https://portal.e-yantra.org/themeBook/wd/Learnings/Control_System/pid_drones.html#proportional-controller-p-controller">Proportional Controller (P Controller)</a></h4></li>
+<div align="justify">P controller is mostly used in first order processes with single energy storage to stabilize the unstable process. The main usage of the P controller is to decrease the steady state error of the system. As the proportional gain factor K increases, the steady state error of the system decreases. However, despite the reduction, P control can never manage to eliminate the steady state error of the system. As we increase the proportional gain, it provides smaller amplitude and phase margin, faster dynamics satisfying wider frequency band and larger sensitivity to the noise. We can use this controller only when our system is tolerable to a constant steady state error. In addition, it can be easily concluded that applying P controller decreases the rise time and after a certain value of reduction on the steady state error, increasing K only leads to overshoot of the system response. P control also causes oscillation if sufficiently aggressive in the presence of lags and/or dead time. The more lags (higher order), the more problem it leads. Plus, it directly amplifies process noise.</div>
+<li><h4 id="proportional-derivative-controller-pd-controller"><a class="header" href="https://portal.e-yantra.org/themeBook/wd/Learnings/Control_System/pid_drones.html#proportional-derivative-controller-pd-controller">Proportional Derivative Controller (PD Controller)</a></h4></li>
+<div align="justify">The aim of using P-D controller is to increase the stability of the system by improving control since it has an ability to predict the future error of the system response. In order to avoid effects of the sudden change in the value of the error signal, the derivative is taken from the output response of the system variable instead of the error signal. Therefore, D mode is designed to be proportional to the change of the output variable to prevent the sudden changes occurring in the control output resulting from sudden changes in the error signal. In addition D directly amplifies process noise therefore D-only control is not used.</div>
+<li><h4 id="proportional-integral-derivative-pid-controller"><a class="header" href="https://portal.e-yantra.org/themeBook/wd/Learnings/Control_System/pid_drones.html#proportional-integral-derivative-pid-controller">Proportional Integral Derivative (PID Controller)</a></h4></li>
+<div align="justify">P-I-D controller has the optimum control dynamics including zero steady state error, fast response (short rise time), no oscillations and higher stability. The necessity of using a derivative gain component in addition to the PI controller is to eliminate the overshoot and the oscillations occurring in the output response of the system.</div>
+</ol>
+<li><h3 id="p-controller"><a class="header" href="https://portal.e-yantra.org/themeBook/wd/Learnings/Control_System/pid_drones.html#p-controller">P Controller</a></h3></li>
+A P controller consists of only a linear gain Kp. The output of such controller can be simply given as:
+<center><strong>
+output = Kp * error
+</strong></center>
+<br>
+<center>
+<figure>
+  <img src="./PID Controller For Drones - eYRC 2024-25_ Warehouse Drone (WD)_files/p_contol.png" alt="p_contol_block diagram" width="120%" height="120%">
+  <figcaption>Block diagram</figcaption>
+</figure>
+</center>
+<div align="justify">The whycon input consists of x, y and z coordinates which gives the current location of the drone. Suppose the destination is say, (x1, y1, z1), then the difference of coordinates i.e (x1-x) ,(y1-y), (z1-z) will be fed as an input to the P-controller. The resultant product i.e Kp * error will be added or subtracted to the offset pwm as the need be to give the final output.</div>
+<ul>
+<li><h4 id="observations"><a class="header" href="https://portal.e-yantra.org/themeBook/wd/Learnings/Control_System/pid_drones.html#observations">Observations</a></h4></li>
+<div align="justify">It was observed that the drone never settled at its destination. Instead it oscillated about its destination. The higher the value of Kp the more the amplitude of the oscillation and the drone would be out of the flying zone. Below is a plot between error in x, y, and z coordinates and time. Clearly it is visible that the drone was not able to stabilise itself at the destination.</div>
+<br>
+<center>
+  <img src="./PID Controller For Drones - eYRC 2024-25_ Warehouse Drone (WD)_files/p_graph.png" alt="p_contol_graph">
+</center>
+<p>Hence, it was concluded that a P-controller by itself wasn’t able to stabilise the drone at a required point.</p>
+</ul>
+<li><h3 id="pd-controller"><a class="header" href="https://portal.e-yantra.org/themeBook/wd/Learnings/Control_System/pid_drones.html#pd-controller">PD Controller</a></h3></li>
+<div align="justify">In the previous section we saw how the P-Controller wasn’t successful in stabilising the drone at a given point. It was observed that there were oscillations instead. These oscillations can be damped by using a differential gain along with the P-Controller. The system as a whole is said to be a PD Controller.</div>
+<br>
+<center>
+<figure>
+  <img src="./PID Controller For Drones - eYRC 2024-25_ Warehouse Drone (WD)_files/pd_control.png" alt="pd_contol_block diagram" width="120%" height="120%">
+  <figcaption>Block diagram</figcaption>
+</figure>
+</center>
+<div align="justify">The differential gain Kd is multiplied with the difference of error and previous error. Previous error is a variable that holds the last error generated by the controller output. The controller output in this case is given as:
+</div>
+<br>
+<center><strong>
+output = Kp * error + Kd * (error - previous error)
+</strong></center>
+<br>
+<div align="justify">Note that Kd is calculated keeping the sampling time in consideration. This output will be further added or subtracted to the offset pwm as the need be to give the final output.</div>
+<ul>
+<li><h4 id="observations-1"><a class="header" href="https://portal.e-yantra.org/themeBook/wd/Learnings/Control_System/pid_drones.html#observations-1">Observations</a></h4></li>
+<div align="justify">The results of this controller was no match to the P-controller. The oscillations were damped with change in time. Here is a plot of error and time for a PD controller implemented on the Pluto drone.</div>
+<br>
+<center>
+  <img src="./PID Controller For Drones - eYRC 2024-25_ Warehouse Drone (WD)_files/pd_graph.png" alt="pd_contol_graph">
+</center>
+<br>
+<div align="justify">But, there was a hitch!
+On having a closer look it was observed that though the drone could hover with respectable stability, it did not do so over the correct point, i.e the drone did not reach its destination instead it would hover at a point near to the
+destination.This slight error is known as the steady state error. Hence, it was concluded that a PD controller also by itself wasn’t able to stabilise the drone at the correct destination.</div>
+</ul>
+<li><h3 id="pid-controller"><a class="header" href="https://portal.e-yantra.org/themeBook/wd/Learnings/Control_System/pid_drones.html#pid-controller">PID Controller</a></h3></li>
+<div align="justify">In the previous section we saw how a PD controller was not quite enough. In order to minimise the steady state error we introduce another gain called Ki ,the integral gain. Such a system is said to be a PID Controller.</div>
+<br>
+<center>
+<figure>
+  <img src="./PID Controller For Drones - eYRC 2024-25_ Warehouse Drone (WD)_files/pid_control.png" alt="pid_contol_block diagram" width="120%" height="120%">
+  <figcaption>Block diagram</figcaption>
+</figure>
+</center>
+<p>Here in we keep track of the error over time i.e. sum up the errors over a specified sampling time.
+<br></p>
+<center><strong>
+Iterm = (Iterm + error) * Ki
+</strong></center>
+<br>
+<div align="justify">Further explanation regarding implementation of this Iterm is given in the code. Note that Ki is calculated keeping the sampling time in consideration. This output will be further added or subtracted to the offset pwm as the need be to give the final output.</div>
+<br>
+<center><strong>
+output= Kp*error +Iterm + Kd*(error - previous error)
+</strong></center>
+<ul>
+<li><h4 id="observations-2"><a class="header" href="https://portal.e-yantra.org/themeBook/wd/Learnings/Control_System/pid_drones.html#observations-2">Observations</a></h4></li>
+<div align="justify">The PID controller was successful in hovering the drone above the destination point with minimal error. It overcome the steady state error which was noticeable in previous controllers. Here is a plot of error and time for a PID controller implemented on the Pluto drone.</div>
+<br>
+<center>
+  <img src="./PID Controller For Drones - eYRC 2024-25_ Warehouse Drone (WD)_files/pid_graph.png" alt="pid_contol_graph">
+</center>
+</ul>
+<li><h3 id="to-sum-it-up"><a class="header" href="https://portal.e-yantra.org/themeBook/wd/Learnings/Control_System/pid_drones.html#to-sum-it-up">To sum it up</a></h3></li>
+<center>
+  <img src="./PID Controller For Drones - eYRC 2024-25_ Warehouse Drone (WD)_files/p_graph.png" alt="p_contol_graph">
+</center>
+<center>
+  <img src="./PID Controller For Drones - eYRC 2024-25_ Warehouse Drone (WD)_files/pd_graph.png" alt="pd_contol_graph">
+</center>
+<center>
+  <img src="./PID Controller For Drones - eYRC 2024-25_ Warehouse Drone (WD)_files/pid_graph.png" alt="pid_contol_graph">
+</center>
+</ul>
+
+                </main>
+
+                
+            </div>
+        </div>
+
+        <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+
+                
+        </nav>
+
+    </div>
+
+
+
+
+    <script type="text/javascript">
+        window.playground_copyable = true;
+    </script>
+
+
+    <script src="./PID Controller For Drones - eYRC 2024-25_ Warehouse Drone (WD)_files/elasticlunr.min.js.download" type="text/javascript" charset="utf-8"></script>
+    <script src="./PID Controller For Drones - eYRC 2024-25_ Warehouse Drone (WD)_files/mark.min.js.download" type="text/javascript" charset="utf-8"></script>
+    <script src="./PID Controller For Drones - eYRC 2024-25_ Warehouse Drone (WD)_files/searcher.js.download" type="text/javascript" charset="utf-8"></script>
+
+    <script src="./PID Controller For Drones - eYRC 2024-25_ Warehouse Drone (WD)_files/clipboard.min.js.download" type="text/javascript" charset="utf-8"></script>
+    <script src="./PID Controller For Drones - eYRC 2024-25_ Warehouse Drone (WD)_files/highlight.js.download" type="text/javascript" charset="utf-8"></script>
+    <script src="./PID Controller For Drones - eYRC 2024-25_ Warehouse Drone (WD)_files/book.js.download" type="text/javascript" charset="utf-8"></script>
+
+    <!-- Custom JS scripts -->
+
+
+
+    <div class="button-container">
+        <!-- Use Font Awesome icon for Button 1 -->
+        
+        <!-- Use Font Awesome Python icon for Button 2 -->
+        <button id="py_button" class="my-button hidden">
+            <img class="python-icon" src="./PID Controller For Drones - eYRC 2024-25_ Warehouse Drone (WD)_files/python_logo.svg" alt="Python Icon">
+        </button>
+        <button id="cplus_button" class="my-button hidden">
+            <img class="cplusplus-icon" src="./PID Controller For Drones - eYRC 2024-25_ Warehouse Drone (WD)_files/cpp_logo.svg" alt="C++ Icon">
+        </button>
+    </div>
+
+    <script>
+        document.getElementById('code_playground_button').addEventListener('click', function() {
+            var py_button = document.getElementById('py_button');
+            var cplus_button = document.getElementById('cplus_button');
+            
+            py_button.classList.toggle('hidden');
+            cplus_button.classList.toggle('hidden');
+        });
+
+        document.getElementById('py_button').addEventListener('click', function() {
+            window.open('https://www.w3schools.com/python/trypython.asp?filename=demo_default', '_blank'); // Open in new tab
+        });
+
+        document.getElementById('cplus_button').addEventListener('click', function() {
+            window.open('https://www.w3schools.com/CPP/trycpp.asp?filename=demo_helloworld', '_blank'); // Open in new tab
+        });
+    </script>
+
+<a href="Linux/Example 1 - eYRC 2024-25_ Warehouse Drone (WD).html">Example 1</a>
+<a href="Linux/Example 2 - eYRC 2024-25_ Warehouse Drone (WD).html">Example 2</a>
+<a href="Linux/Linux - eYRC 2024-25_ Warehouse Drone (WD).html">Linux Overview</a>
+
+<a href="Linux/Linux File Permissions - eYRC 2024-25_ Warehouse Drone (WD).html">Linux File Permissions</a>
+<a href="Linux/Linux Commands - eYRC 2024-25_ Warehouse Drone (WD).html">Linux Commands</a>
+<a href="Linux/Linux File System Directories - eYRC 2024-25_ Warehouse Drone (WD).html">Linux File System Directories</a>
+
+<a href="../Linux/Shell_Scripting_eYRC_2024_25__Warehouse_Drone(WD).html">Shell Scripting</a>
+
+    
+
+
+    </body>
+</html>

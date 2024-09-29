@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<!-- saved from url=(0148)file:///C:/Users/Sarbeswar%20Nayak/OneDrive/eY/Learnings/Image%20Processing/Image%20Processing%20-%20eYRC%202024-25_%20Warehouse%20Drone%20(WD).html -->
+<html lang="en" class="js sidebar-hidden sidebar-visible sustain"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Book generated using mdBook -->
+    
+    <title>Image Processing - eYRC 2024-25: Warehouse Drone (WD)</title>
+
+    
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="rgba(0, 0, 0, 0)">
+
+    <link rel="shortcut icon" href="https://e-yantra.org/logo/eyantra/press/25eyantra_logo~SmallLogo_html.svg">
+    <link rel="stylesheet" href="./Image Processing - eYRC 2024-25_ Warehouse Drone (WD)_files/variables.css">
+    <link rel="stylesheet" href="./Image Processing - eYRC 2024-25_ Warehouse Drone (WD)_files/general.css">
+    <link rel="stylesheet" href="./Image Processing - eYRC 2024-25_ Warehouse Drone (WD)_files/chrome.css">
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="./Image Processing - eYRC 2024-25_ Warehouse Drone (WD)_files/all.min.css">
+    <link rel="stylesheet" href="./Image Processing - eYRC 2024-25_ Warehouse Drone (WD)_files/font-awesome.css">
+    <link rel="stylesheet" href="./Image Processing - eYRC 2024-25_ Warehouse Drone (WD)_files/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" href="./Image Processing - eYRC 2024-25_ Warehouse Drone (WD)_files/highlight.css">
+    <link rel="stylesheet" href="./Image Processing - eYRC 2024-25_ Warehouse Drone (WD)_files/tomorrow-night.css" disabled="">
+    <link rel="stylesheet" href="./Image Processing - eYRC 2024-25_ Warehouse Drone (WD)_files/ayu-highlight.css" disabled="">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="./Image Processing - eYRC 2024-25_ Warehouse Drone (WD)_files/css2" rel="stylesheet">
+
+    <!-- Custom theme stylesheets -->
+
+    <!-- MathJax -->
+    <script async="" type="text/javascript" src="./Image Processing - eYRC 2024-25_ Warehouse Drone (WD)_files/MathJax.js.download"></script>
+
+    <style>
+
+        
+        .button-container {
+            position: fixed; /* Fixed position for staying near the bottom-right corner */
+            bottom: 8%; /* Adjust distance from the bottom as a percentage */
+            right: 8%; /* Adjust distance from the right as a percentage */
+            width: 150px; /* Set the width of the container */
+            height: 150px; /* Set the height of the container */
+        }
+
+        .my-button {
+            border-radius: 50%; /* Round button */
+            font-size: 16px;
+            border: none;
+            background-color: #ffffff;
+            color: rgb(0, 0, 0);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            position: absolute;
+        }
+
+        .my-button:hover {
+            background-color: #008B8B;
+        }
+
+        /* Button 1 Styles */
+        #code_playground_button {
+            width: 50px; /* Fixed width for Button 1 */
+            height: 50px; /* Fixed height for Button 1 */
+            top: 50%;
+            left: 100%;
+            transform: translate(-50%, -50%);
+            font-size: 24px; /* Font size for the icon */
+        }
+
+        /* Button 2 Styles */
+        #py_button {
+            width: 60px; /* Fixed width for Button 2 */
+            height: 60px; /* Fixed height for Button 2 */
+            top: 0;
+            left: 0;
+            font-size: 24px; /* Font size for the icon */
+        }
+
+        /* Button 3 Styles */
+        #cplus_button {
+            width: 60px; /* Fixed width for Button 3 */
+            height: 60px; /* Fixed height for Button 3 */
+            bottom: 0;
+            left: 0;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .cplusplus-icon {
+            width: 3em; 
+            height: 3em;
+        }
+
+        .python-icon {
+            width: 1.5em; 
+            height: 1.5em;
+        }
+    </style>
+<style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuRadioCheck.RTL {right: 1em; left: auto}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><script src="file:///C:/Users/Sarbeswar%20Nayak/OneDrive/eY/searchindex.js"></script></head>
+<body><div id="MathJax_Message" style="display: none;"></div><div id="MathJax_Message" style="display: none;"></div>
+    <!-- Provide site root to javascript -->
+    <script type="text/javascript">
+        var path_to_root = "../../";
+        var default_theme = "sustain";
+        <!-- window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "sustain"; -->
+    </script>
+
+    <!-- Work around some values being stored in localStorage wrapped in quotes -->
+    <script type="text/javascript">
+        try {
+            var theme = localStorage.getItem('mdbook-theme');
+            var sidebar = localStorage.getItem('mdbook-sidebar');
+
+            if (theme.startsWith('"') && theme.endsWith('"')) {
+                localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+            }
+
+            if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+            }
+        } catch (e) { }
+    </script>
+
+    <!-- Set the theme before any content is loaded, prevents flash -->
+    <script type="text/javascript">
+        var theme;
+        try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+        if (theme === null || theme === undefined) { theme = default_theme; }
+        var html = document.querySelector('html');
+        html.classList.remove('no-js')
+        html.classList.remove('sustain')
+        html.classList.add(theme);
+        html.classList.add('js');
+    </script>
+
+    <!-- Hide / unhide sidebar before it is displayed -->
+    <script type="text/javascript">
+        var html = document.querySelector('html');
+        var sidebar = 'hidden';
+        if (document.body.clientWidth >= 1080) {
+            try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+            sidebar = sidebar || 'visible';
+        }
+        html.classList.remove('sidebar-visible');
+        html.classList.add("sidebar-" + sidebar);
+    </script>
+
+    <nav id="sidebar" class="sidebar" aria-label="Table of contents" aria-hidden="true">
+        <div class="sidebar-scrollbox">
+            <ol class="chapter"><li class="chapter-item affix "></li><li class="part-title">Welcome to Warehouse Drone theme!</li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/welcome.html" tabindex="-1">Home</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/bulletin_board.html" tabindex="-1">Bulletin board</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/deadlines.html" tabindex="-1">Deadlines</a></li><li class="chapter-item affix "></li><li class="spacer"></li><li class="chapter-item affix "></li><li class="part-title">Learning Section</li><li class="chapter-item expanded "><a href="https://portal.e-yantra.org/themeBook/wd/WD-learn-section-intro.html" tabindex="-1">Learnings</a><a class="toggle" tabindex="-1"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/Linux/Linux.html" tabindex="-1">Linux</a><a class="toggle" tabindex="-1"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/Linux/learn-linux-file-system.html" tabindex="-1">Linux File System Directories</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/Linux/learn-linux-file-permissions.html" tabindex="-1">Linux File Permissions</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/Linux/learn-linux-command.html" tabindex="-1">Linux Commands</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/Linux/shell_scripting.html" tabindex="-1">Shell Scripting</a><a class="toggle" tabindex="-1"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/Linux/Shell_scripting_example.html" tabindex="-1">Example 1</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/Linux/shell_scripting_example2.html" tabindex="-1">Example 2</a></li></ol></li></ol></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/Python/python.html" tabindex="-1">Python</a><a class="toggle" tabindex="-1"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/Python/py_tutorials.html" tabindex="-1">Python Tutorials</a></li></ol></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/C++/c++.html" tabindex="-1">C++</a><a class="toggle" tabindex="-1"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/C++/cpp_tutorials.html" tabindex="-1">C++ Tutorials</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/C++/cpp_books.html" tabindex="-1">C++ Books</a></li></ol></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/ROS/ROS.html" tabindex="-1">ROS 2</a><a class="toggle" tabindex="-1"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/ROS/ros_books.html" tabindex="-1">ROS 2 Books</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/ROS/ROS2_concepts.html" tabindex="-1">ROS 2 Concepts</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/ROS/ROS2_tutorials.html" tabindex="-1">ROS 2 Tutorials</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/ROS/turtlesim_tutorials.html" tabindex="-1">Turtlesim Resources</a></li></ol></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/Gazebo_URDF/GZ_URDF.html" tabindex="-1">Gazebo &amp; URDF</a><a class="toggle" tabindex="-1"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/Gazebo_URDF/Gazebo.html" tabindex="-1">Gazebo Tutorials</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/Gazebo_URDF/URDF.html" tabindex="-1">URDF ROS 2</a></li></ol></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/Quadcopter/quadcopters.html" tabindex="-1">Quadcopters</a><a class="toggle" tabindex="-1"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/Quadcopter/swift_model.html" tabindex="-1">Understanding the Swift Pico model in gazebo simulator</a></li></ol></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/Control_System/control_systems.html" tabindex="-1">Control Systems</a><a class="toggle" tabindex="-1"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/Control_System/pid_drones.html" tabindex="-1">PID Controller For Drones</a></li></ol></li><li class="chapter-item expanded "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/Image_Processing/image_processing.html" class="active" tabindex="-1">Image Processing</a><a class="toggle" tabindex="-1"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/Image_Processing/opencv_py.html" tabindex="-1">OpenCV Python</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/Image_Processing/ros_opencv.html" tabindex="-1">ROS-OpenCV</a></li></ol></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/Github/git_github.html" tabindex="-1">Git and GitHub</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Learnings/Coding_Standard/coding_std.html" tabindex="-1">Coding Standards</a></li></ol></li><li class="chapter-item "></li><li class="part-title">Competition Section</li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Stage_1.html" tabindex="-1">Stage 1</a><a class="toggle" tabindex="-1"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Task_0/task_0.html" tabindex="-1">Task 0</a><a class="toggle" tabindex="-1"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Task_0/Installation_task0.html" tabindex="-1">Installation of Ubuntu and ROS</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Task_0/Submission_task0.html" tabindex="-1">Submission Instructions </a></li></ol></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Task_1/task_1.html" tabindex="-1">Task 1</a><a class="toggle" tabindex="-1"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Task_1/task_1a.html" tabindex="-1">Task 1A</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Task_1/task_1b.html" tabindex="-1">Task 1B</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/Task_1/task_1c.html" tabindex="-1">Task 1C</a></li></ol></li></ol></li><li class="chapter-item "></li><li class="part-title">Live Sessions</li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/wd/live_sessions/task_0_1.html" tabindex="-1">Task 0 &amp; 1</a></li></ol>
+        </div>
+        <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+    </nav>
+
+    <div id="page-wrapper" class="page-wrapper">
+
+        <div class="page">
+            <div id="menu-bar-hover-placeholder"></div>
+            
+
+            <script type="text/javascript">
+                if (document.body.clientWidth < 600) {
+                    let logo = document.getElementById("eLogo");
+                    logo.style = "display: none";
+                    document.getElementById("RCName").style = "display: none";
+                    document.getElementById("image-container").style = "justify-content: center";
+                }
+                if (document.body.clientWidth < 400) {
+                    let rB = document.getElementsByClassName("right-buttons");
+                    rB[0].style = "display:none";
+                }
+            </script>
+
+            <div id="search-wrapper" class="hidden">
+                <form id="searchbar-outer" class="searchbar-outer">
+                    <input type="search" name="search" id="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                </form>
+                <div id="searchresults-outer" class="searchresults-outer hidden">
+                    <div id="searchresults-header" class="searchresults-header"></div>
+                    <ul id="searchresults">
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+            <script type="text/javascr&lt;link rel=" stylesheet"="" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">uerySelectorAll('#sidebar a')).forEach(function(link) {
+                    link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                });
+            </script>
+
+            <div id="content" class="content">
+                <main>
+                    <center>
+<h1 id="image-processing-basics"><a class="header" href="https://portal.e-yantra.org/themeBook/wd/Learnings/Image_Processing/image_processing.html#image-processing-basics">Image Processing Basics</a></h1>
+</center>
+<p><strong>Digital Image Processing</strong> means processing digital images using a digital computer. It involves the use of computer algorithms to enhance images or extract useful information.It uses algorithms and mathematical models to process and analyze digital images. The goal is to enhance image quality, extract meaningful information, and automate image-based tasks.</p>
+<h3 id="basic-steps-in-digital-image-processing"><a class="header" href="https://portal.e-yantra.org/themeBook/wd/Learnings/Image_Processing/image_processing.html#basic-steps-in-digital-image-processing">Basic Steps in Digital Image Processing</a></h3>
+<ol>
+<li><strong>Image acquisition</strong>: Capturing an image using a digital camera or scanner, or importing an existing image into a computer.</li>
+<li><strong>Image enhancement</strong>: Improving visual quality by increasing contrast, reducing noise, and removing artifacts.</li>
+<li><strong>Image restoration</strong>: Removing degradation such as blurring, noise, and distortion.</li>
+<li><strong>Image segmentation</strong>: Dividing an image into regions or segments that correspond to specific objects or features.</li>
+<li><strong>Image representation and description</strong>: Representing an image in a way that can be analyzed and manipulated, and describing its features in a compact manner.</li>
+<li><strong>Image analysis</strong>: Using algorithms to extract information, recognize objects, detect patterns, and quantify features.</li>
+<li><strong>Image synthesis and compression</strong>: Generating new images or compressing existing ones to reduce storage and transmission needs.</li>
+</ol>
+<p>Digital image processing is widely used in applications such as medical imaging, remote sensing, computer vision, and multimedia.</p>
+<h3 id="image-processing-steps"><a class="header" href="https://portal.e-yantra.org/themeBook/wd/Learnings/Image_Processing/image_processing.html#image-processing-steps">Image Processing Steps</a></h3>
+<ol>
+<li><strong>Importing the image</strong>: Using image acquisition tools to bring the image into the system.</li>
+<li><strong>Analyzing and manipulating the image</strong>: Applying various techniques to modify or extract information from the image.</li>
+<li><strong>Output</strong>: The result can be either an altered image or a report based on the analysis.</li>
+</ol>
+<h2 id="what-is-an-image"><a class="header" href="https://portal.e-yantra.org/themeBook/wd/Learnings/Image_Processing/image_processing.html#what-is-an-image">What is an Image?</a></h2>
+<p>An image is defined as a two-dimensional function, <strong>F(x, y)</strong>, where x and y are spatial coordinates. The amplitude of <strong>F</strong> at any pair of coordinates (x, y) is called the <strong>intensity</strong> of the image at that point. When x, y, and amplitude values are finite, it is referred to as a <strong>digital image</strong>. In other words, an image can be defined by a two-dimensional array arranged in rows and columns. A digital image consists of finite elements, each with a value at a specific location. These elements are called <em>picture elements</em>, <em>image elements</em>, or <em>pixels</em>. <em>Pixel</em> is the most commonly used term.</p>
+<h3 id="types-of-images"><a class="header" href="https://portal.e-yantra.org/themeBook/wd/Learnings/Image_Processing/image_processing.html#types-of-images">Types of Images</a></h3>
+<ol>
+<li><strong>Binary image</strong>: Contains only two pixel values, 0 and 1, where 0 represents black and 1 represents white. Also known as Monochrome.</li>
+<li><strong>Black and white image</strong>: Consists solely of black and white colors.</li>
+<li><strong>8-bit color format</strong>: Commonly known as Grayscale Image, it has 256 shades of gray. In this format, 0 stands for black, 255 stands for white, and 127 stands for gray.</li>
+<li><strong>16-bit color format</strong>: Known as High Color Format, it includes 65,536 colors. It is divided into three further formats: Red, Green, and Blue, forming the RGB format.</li>
+</ol>
+<h3 id="image-as-a-matrix"><a class="header" href="https://portal.e-yantra.org/themeBook/wd/Learnings/Image_Processing/image_processing.html#image-as-a-matrix">Image as a Matrix</a></h3>
+<p>Images are represented in rows and columns as follows:</p>
+<center><img src="./Image Processing - eYRC 2024-25_ Warehouse Drone (WD)_files/gfg2-5.png" alt="Image Matrix" width="90%" height="90%"></center>
+<p>Every element of this matrix is called an image element, picture element, or pixel.</p>
+<h3 id="phases-of-image-processing"><a class="header" href="https://portal.e-yantra.org/themeBook/wd/Learnings/Image_Processing/image_processing.html#phases-of-image-processing">Phases of Image Processing</a></h3>
+<ol>
+<li><strong>Acquisition</strong>: This includes tasks such as scaling and color conversion (e.g., RGB to Gray).</li>
+<li><strong>Image enhancement</strong>: Used to extract hidden details and improve image appeal, but it is subjective.</li>
+<li><strong>Image restoration</strong>: Deals with improving image appeal based on mathematical or probabilistic models of degradation.</li>
+<li><strong>Color image processing</strong>: Handles pseudocolor and full color image processing using color models.</li>
+<li><strong>Wavelets and multi-resolution processing</strong>: Represents images at various degrees of resolution.</li>
+<li><strong>Image compression</strong>: Focuses on reducing image size or resolution.</li>
+<li><strong>Morphological processing</strong>: Extracts components useful in shape representation and description.</li>
+<li><strong>Segmentation procedure</strong>: Involves partitioning an image into parts or objects; autonomous segmentation is particularly challenging.</li>
+<li><strong>Representation and description</strong>: Involves choosing a representation and transforming raw data into processed data.</li>
+<li><strong>Object detection and recognition</strong>: Assigns labels to objects based on their descriptors.</li>
+</ol>
+<h3 id="overlapping-fields-with-image-processing"><a class="header" href="https://portal.e-yantra.org/themeBook/wd/Learnings/Image_Processing/image_processing.html#overlapping-fields-with-image-processing">Overlapping Fields with Image Processing</a></h3>
+<center><img src="./Image Processing - eYRC 2024-25_ Warehouse Drone (WD)_files/digital-image-processing.png" alt="Overlapping Fields" width="90%" height="90%"></center>
+<ul>
+<li><strong>Digital Image Processing</strong>: Input is an image, and the output is an image.</li>
+<li><strong>Computer Vision</strong>: Input is an image, and the output is some kind of information or description.</li>
+<li><strong>Computer Graphics</strong>: Input is some description or code, and the output is an image.</li>
+<li><strong>Artificial Intelligence</strong>: Input is a description or keywords or code, and the output is a description or keywords.</li>
+</ul>
+<h2 id="what-is-pixel"><a class="header" href="https://portal.e-yantra.org/themeBook/wd/Learnings/Image_Processing/image_processing.html#what-is-pixel">What is Pixel?</a></h2>
+<p>A pixel, short for "picture element," is the smallest unit of a digital image or display that can be controlled or manipulated. Pixels are the smallest fragments of a digital photo. Pixels are tiny square or rectangular elements that make up the images we see on screens, from smartphones to televisions.</p>
+<p>Every pixel in the image is marked by its coordinates and contains information about color and brightness or sometimes opacity level has a place for each and all pixels.</p>
+<p>Understanding pixels is crucial in digital imaging and photography, as they determine the resolution and quality of an image. An image consists of several pixels that define its resolution. For example, a resolution of 1920×1080 would typically be related to a Full HD screen. In this instance, the total number of pixels is 1080 x 1920 (altogether more than two million dots that form an image on the screen).</p>
+<h3 id="history-of-pixels"><a class="header" href="https://portal.e-yantra.org/themeBook/wd/Learnings/Image_Processing/image_processing.html#history-of-pixels">History of Pixels</a></h3>
+<p>The word “Pixel” is a fusion of picture and element, which has its roots in the early times when digital imaging was just beginning to emerge. The concept of pixels emerged alongside the development of the first digital images, primarily driven by the need for efficient representation and processing of visual information. In the 1950s and 60s, when <a href="https://www.geeksforgeeks.org/introduction-to-computer-graphics/">computer graphics</a> and digital imaging technologies began, researchers were trying to find a method of converting visual information into digital form. This led to the creation of pixels, which are individual elements in a digital image defined by color and brightness characteristics.</p>
+<h3 id="defining-key-terminologies"><a class="header" href="https://portal.e-yantra.org/themeBook/wd/Learnings/Image_Processing/image_processing.html#defining-key-terminologies">Defining Key Terminologies</a></h3>
+<ol>
+<li>
+<p><strong>Pixel (Picture Element):</strong> A pixel is the smallest part of a computer picture. It represents one spot in the entire photo. Each small square has information about color, brightness, and position. When these squares are combined with others, they create a complete picture that we can see. Pixels are the components that make up digital screens, arranging together to display letters, pictures, and videos.</p>
+</li>
+<li>
+<p><strong>Resolution:</strong> Resolution refers to the number of tiny squares, called pixels, in a digital photo. It is usually measured by width and height. Higher resolution provides more detail in images. Common measurements for resolution are <a href="https://www.geeksforgeeks.org/difference-between-ppi-and-dpi/">pixels per inch (PPI)</a> for printed images and pixels per centimeter (PPCM). For example, a screen with a resolution of 1920 x 1080 has 1920 pixels horizontally and 1080 pixels vertically.</p>
+</li>
+<li>
+<p><strong>Pixel Density:</strong> Display resolution, often shown as pixels per inch (PPI) for screens, determines how clear a picture looks. More pixels lead to sharper images. Mobile phones with high pixel density often have clearer and more colorful displays.</p>
+</li>
+<li>
+<p><strong>Color Depth:</strong> Bit depth, also known as color depth, indicates how many bits are used to represent the color of each pixel. Common values are 8-bit, 16-bit, and 24-bit color levels. More bits allow a pixel to display a wider range of colors, resulting in richer and more detailed images.</p>
+</li>
+<li>
+<p><strong>Raster and Vector Graphics:</strong> In <a href="https://www.geeksforgeeks.org/vector-vs-raster-graphics/">raster graphics</a>, pixels play a crucial role. These images are composed of many tiny squares called pixels. In contrast, <a href="https://www.geeksforgeeks.org/vector-graphics-in-computer-graphics/">vector graphics</a> use mathematical equations to create shapes, allowing them to scale without losing quality. Vector graphics are ideal for applications like logos and illustrations.</p>
+</li>
+<li>
+<p><strong>Aspect Ratio:</strong> The aspect ratio refers to the ratio of an image's width to its height. Common aspect ratios include 4:3, 16:9, and 1:1. Different devices and media may have specific size requirements, affecting how images are displayed or captured.</p>
+</li>
+</ol>
+<h2 id="color-spaces"><a class="header" href="https://portal.e-yantra.org/themeBook/wd/Learnings/Image_Processing/image_processing.html#color-spaces">Color Spaces</a></h2>
+<h2 id="rgb-color-space"><a class="header" href="https://portal.e-yantra.org/themeBook/wd/Learnings/Image_Processing/image_processing.html#rgb-color-space">RGB Color Space</a></h2>
+<p>RGB images can be viewed as three different images (a red scale image, a green scale image, and a blue scale image) stacked on top of each other. When fed into the red, green, and blue inputs of a color monitor, it produces a color image on the screen.</p>
+<ul>
+<li>The RGB color model blends Red, Blue, and Green colors together to form an array of colors.</li>
+<li>In this article, we will learn the concept of extracting RGB components from an image and calculating RGB values of pixels using the MATLAB interface.</li>
+<li>An RGB image is sometimes referred to as a true color image, as the precision with which a real-life image can be replicated has led to the nickname “true color image.”</li>
+</ul>
+<h3 id="advantages-of-the-rgb-color-model"><a class="header" href="https://portal.e-yantra.org/themeBook/wd/Learnings/Image_Processing/image_processing.html#advantages-of-the-rgb-color-model">Advantages of the RGB Color Model</a></h3>
+<ul>
+<li>No transformations are required to display data on the screen.</li>
+<li>It is considered the base color space for various applications.</li>
+<li>It is a computationally practical system.</li>
+<li>Using its additive property, it is employed in video displays.</li>
+<li>This model is very easy to implement.</li>
+<li>Some of its uses are as follows:
+<ol>
+<li>In displays</li>
+<li>In cameras</li>
+<li>In scanners</li>
+</ol>
+</li>
+</ul>
+<img src="./Image Processing - eYRC 2024-25_ Warehouse Drone (WD)_files/rgb-colors-crossing-02-5714560.jpg" alt="RGB Composition Image (Primary Colors)" width="90%" height="90%">
+<p>An RGB image is essentially a <strong>MxNx3</strong> array of color pixels, where each color pixel is associated with three values corresponding to the red, blue, and green color components of the RGB image at a specified spatial location.</p>
+<ul>
+<li>The color of any pixel is determined by the combination of the red, green, and blue intensities stored in each color plane at the pixel’s location. Each color plane is an <strong>M*N array</strong>.</li>
+<li>Let an RGB image be of class ‘uint8’, meaning the range of values a color component plane can have is (2^8), which results in [0 – 255] (a total of 256 shades of that color). Each individual color plane of an RGB image can show <strong>256 shades of that color</strong>. Thus, the total number of color combinations that can be represented in an RGB image is (256 \times 256 \times 256 = 16,777,216), approximately 16 million.</li>
+</ul>
+<img src="./Image Processing - eYRC 2024-25_ Warehouse Drone (WD)_files/RGB-arrays-combined-to-make-image.jpg" alt="Pixel of any RGB image are formed from the corresponding pixel of the three components" width="90%" height="90%">
+<p>As seen in the image above, Pixel(A) has the value (255, 0, 255) and is determined by the combination of intensities stored in the red, green, and blue color planes, respectively. Similarly, Pixel(B) has the value (127, 255, 0) and is determined in the same manner as Pixel(A).</p>
+<h3 id="color-planes-of-an-rgb-image"><a class="header" href="https://portal.e-yantra.org/themeBook/wd/Learnings/Image_Processing/image_processing.html#color-planes-of-an-rgb-image">Color Planes of an RGB Image</a></h3>
+<p>Consider an RGB image array ‘I’. To use the image in MATLAB, you must add the address of the image in the MATLAB drive and copy the address into the respective code.</p>
+<ul>
+<li><code class="hljs">I(:, :, 1)</code> represents the Red color plane of the RGB image.</li>
+<li><code class="hljs">I(:, :, 2)</code> represents the Green color plane of the RGB image.</li>
+<li><code class="hljs">I(:, :, 3)</code> represents the Blue color plane of the RGB image.</li>
+</ul>
+<h2 id="hsv-color-space"><a class="header" href="https://portal.e-yantra.org/themeBook/wd/Learnings/Image_Processing/image_processing.html#hsv-color-space">HSV Color Space</a></h2>
+<p>An HSV color model is the most accurate representation of how humans perceive colors. Humans perceive colors differently compared to how RGB or CMYK create colors. The H stands for Hue, S stands for Saturation, and V stands for Value. Imagine a cone with a spectrum of red to blue from left to right, and from the center to the edge, the color intensity increases. From bottom to top, the brightness increases, resulting in white at the center up layer. A pictographic representation is shown below.</p>
+  <img src="./Image Processing - eYRC 2024-25_ Warehouse Drone (WD)_files/hsvcone.gif" alt="HSV Color Model" width="90%" height="90%">
+<ul>
+<li><strong>Hue</strong>: Hue tells the angle to look at the cylindrical disk. The hue represents the color. The hue value ranges from 0 to 360 degrees.</li>
+</ul>
+<div class="table-wrapper"><table><thead><tr><th>Angle (in degrees)</th><th>Color</th></tr></thead><tbody>
+<tr><td>0-60</td><td>Red</td></tr>
+<tr><td>60-120</td><td>Yellow</td></tr>
+<tr><td>120-180</td><td>Green</td></tr>
+<tr><td>180-240</td><td>Cyan</td></tr>
+<tr><td>240-300</td><td>Blue</td></tr>
+<tr><td>300-360</td><td>Magenta</td></tr>
+</tbody></table>
+</div>
+<ul>
+<li><strong>Saturation</strong>: The saturation value tells us how much of the respective color must be added. A 100% saturation means that pure color is added, while a 0% saturation means no color is added, resulting in grayscale.</li>
+<li><strong>Value</strong>: The value represents the brightness concerning the saturation of the color. A value of 0 represents total black darkness, while a value of 100 indicates full brightness, depending on the saturation.</li>
+</ul>
+<h3 id="advantages"><a class="header" href="https://portal.e-yantra.org/themeBook/wd/Learnings/Image_Processing/image_processing.html#advantages">Advantages:</a></h3>
+<p>The advantage of HSV is that it generalizes how humans perceive color, making it the most accurate depiction of how we perceive colors on the computer screen. Additionally, the HSV color space separates luma from color information. This allows for operations like histogram equalization to be performed only on intensity values.</p>
+<ul>
+<li>
+<p>Some of its uses are as follows:</p>
+<ol>
+<li>HSV model is used in histogram equalization.</li>
+<li>Converting grayscale images to RGB color images.</li>
+<li>Visualization of images is easier as by plotting the H and S components, we can vary the V component or vice versa to see different visualizations.</li>
+</ol>
+</li>
+</ul>
+<hr>
+<h2 id="more-on-opencv"><a class="header" href="https://portal.e-yantra.org/themeBook/wd/Learnings/Image_Processing/image_processing.html#more-on-opencv">More on OpenCV:</a></h2>
+<ol>
+<li><a href="https://docs.opencv.org/4.x/d9/df8/tutorial_root.html">OpenCV Docs</a></li>
+<li><a href="https://www.opencv-srf.com/p/introduction.html">OpenCV Tutorial C++</a></li>
+</ol>
+
+                </main>
+
+                <nav class="nav-wrapper" aria-label="Page navigation">
+                    <!-- Mobile navigation buttons -->
+                        
+
+                        
+
+                    
+                </nav>
+            </div>
+        </div>
+
+        
+
+    </div>
+
+
+
+
+    <script type="text/javascript">
+        window.playground_copyable = true;
+    </script>
+
+
+    <script src="./Image Processing - eYRC 2024-25_ Warehouse Drone (WD)_files/elasticlunr.min.js.download" type="text/javascript" charset="utf-8"></script>
+    <script src="./Image Processing - eYRC 2024-25_ Warehouse Drone (WD)_files/mark.min.js.download" type="text/javascript" charset="utf-8"></script>
+    <script src="./Image Processing - eYRC 2024-25_ Warehouse Drone (WD)_files/searcher.js.download" type="text/javascript" charset="utf-8"></script>
+
+    <script src="./Image Processing - eYRC 2024-25_ Warehouse Drone (WD)_files/clipboard.min.js.download" type="text/javascript" charset="utf-8"></script>
+    <script src="./Image Processing - eYRC 2024-25_ Warehouse Drone (WD)_files/highlight.js.download" type="text/javascript" charset="utf-8"></script>
+    <script src="./Image Processing - eYRC 2024-25_ Warehouse Drone (WD)_files/book.js.download" type="text/javascript" charset="utf-8"></script>
+
+    <!-- Custom JS scripts -->
+
+
+
+    <div class="button-container">
+        <!-- Use Font Awesome icon for Button 1 -->
+        
+        <!-- Use Font Awesome Python icon for Button 2 -->
+        <button id="py_button" class="my-button hidden">
+            <img class="python-icon" src="./Image Processing - eYRC 2024-25_ Warehouse Drone (WD)_files/python_logo.svg" alt="Python Icon">
+        </button>
+        <button id="cplus_button" class="my-button hidden">
+            <img class="cplusplus-icon" src="./Image Processing - eYRC 2024-25_ Warehouse Drone (WD)_files/cpp_logo.svg" alt="C++ Icon">
+        </button>
+    </div>
+
+    <script>
+        document.getElementById('code_playground_button').addEventListener('click', function() {
+            var py_button = document.getElementById('py_button');
+            var cplus_button = document.getElementById('cplus_button');
+            
+            py_button.classList.toggle('hidden');
+            cplus_button.classList.toggle('hidden');
+        });
+
+        document.getElementById('py_button').addEventListener('click', function() {
+            window.open('https://www.w3schools.com/python/trypython.asp?filename=demo_default', '_blank'); // Open in new tab
+        });
+
+        document.getElementById('cplus_button').addEventListener('click', function() {
+            window.open('https://www.w3schools.com/CPP/trycpp.asp?filename=demo_helloworld', '_blank'); // Open in new tab
+        });
+    </script>
+    
+
+
+</body></html>
